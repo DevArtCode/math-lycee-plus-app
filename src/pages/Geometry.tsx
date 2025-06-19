@@ -175,7 +175,7 @@ const Geometry = () => {
                       <li>Orthogonalité : u⃗·v⃗ = 0</li>
                     </ul>
                   </div>
-                </TagsContent>
+                </TabsContent>
                 <TabsContent value="trigo" className="space-y-4">
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <h4 className="font-semibold mb-2">Trigonométrie :</h4>
