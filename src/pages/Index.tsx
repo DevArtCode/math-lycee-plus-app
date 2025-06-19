@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calculator, BookOpen, TrendingUp, Users, Star, ChevronRight } from 'lucide-react';
@@ -14,7 +13,8 @@ const Index = () => {
       icon: Calculator,
       color: 'from-blue-500 to-blue-600',
       level: 'Seconde → Terminale',
-      exercises: 156
+      exercises: 156,
+      path: '/algebra'
     },
     {
       id: 'analysis',
@@ -23,7 +23,8 @@ const Index = () => {
       icon: TrendingUp,
       color: 'from-purple-500 to-purple-600',
       level: 'Première → L1',
-      exercises: 203
+      exercises: 203,
+      path: '/analysis'
     },
     {
       id: 'geometry',
@@ -32,7 +33,8 @@ const Index = () => {
       icon: BookOpen,
       color: 'from-green-500 to-green-600',
       level: 'Seconde → Terminale',
-      exercises: 127
+      exercises: 127,
+      path: '/geometry'
     },
     {
       id: 'probability',
@@ -41,7 +43,8 @@ const Index = () => {
       icon: Users,
       color: 'from-orange-500 to-orange-600',
       level: 'Première → L1',
-      exercises: 89
+      exercises: 89,
+      path: '/probability'
     }
   ];
 
@@ -118,28 +121,30 @@ const Index = () => {
           {mathTopics.map((topic) => {
             const Icon = topic.icon;
             return (
-              <Card key={topic.id} className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-0 shadow-lg overflow-hidden">
-                <div className={`h-2 bg-gradient-to-r ${topic.color}`} />
-                <CardHeader className="pb-2">
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${topic.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle className="text-xl text-slate-900">{topic.title}</CardTitle>
-                  <CardDescription className="text-slate-600">
-                    {topic.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex justify-between items-center text-sm text-slate-500 mb-3">
-                    <span>{topic.level}</span>
-                    <span>{topic.exercises} exercices</span>
-                  </div>
-                  <Button variant="ghost" className="w-full justify-between group-hover:bg-slate-50">
-                    Commencer
-                    <ChevronRight className="w-4 h-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+              <Link key={topic.id} to={topic.path}>
+                <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-0 shadow-lg overflow-hidden h-full">
+                  <div className={`h-2 bg-gradient-to-r ${topic.color}`} />
+                  <CardHeader className="pb-2">
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${topic.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <CardTitle className="text-xl text-slate-900">{topic.title}</CardTitle>
+                    <CardDescription className="text-slate-600">
+                      {topic.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex justify-between items-center text-sm text-slate-500 mb-3">
+                      <span>{topic.level}</span>
+                      <span>{topic.exercises} exercices</span>
+                    </div>
+                    <Button variant="ghost" className="w-full justify-between group-hover:bg-slate-50">
+                      Commencer
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Link>
             );
           })}
         </div>
@@ -153,18 +158,27 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h4 className="text-xl font-semibold text-slate-900 mb-2">{feature.title}</h4>
-                  <p className="text-slate-600">{feature.description}</p>
-                </div>
-              );
-            })}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Calculator className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">Exercices Interactifs</h4>
+              <p className="text-slate-600">Plus de 500 exercices avec correction automatique et explications détaillées</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">Progression Adaptative</h4>
+              <p className="text-slate-600">Le niveau s'adapte à votre rythme pour un apprentissage optimal</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BookOpen className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">Théorie Complète</h4>
+              <p className="text-slate-600">Cours détaillés avec exemples et démonstrations interactives</p>
+            </div>
           </div>
         </div>
       </section>
