@@ -152,12 +152,14 @@ const Algebra = () => {
                   <span className="text-sm text-slate-500">{chapter.exercises} exercices</span>
                 </div>
                 <div className="flex gap-2">
-                  <Button className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700">
-                    <PlayCircle className="w-4 h-4 mr-2" />
-                    Commencer
-                  </Button>
+                  <Link to="/algebra/chapter" className="flex-1">
+                    <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700">
+                      <PlayCircle className="w-4 h-4 mr-2" />
+                      Cours complet
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="flex-1">
-                    Voir le cours
+                    Exercices rapides
                   </Button>
                 </div>
               </CardContent>

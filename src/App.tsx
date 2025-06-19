@@ -9,6 +9,7 @@ import Algebra from "./pages/Algebra";
 import Analysis from "./pages/Analysis";
 import Geometry from "./pages/Geometry";
 import Probability from "./pages/Probability";
+import AlgebraChapter from "./pages/AlgebraChapter";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/algebra" element={<Algebra />} />
+          <Route path="/algebra/chapter" element={<AlgebraChapter />} />
           <Route path="/analysis" element={<Analysis />} />
           <Route path="/geometry" element={<Geometry />} />
           <Route path="/probability" element={<Probability />} />
