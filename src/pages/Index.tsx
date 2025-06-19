@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calculator, BookOpen, TrendingUp, Users, Star, ChevronRight } from 'lucide-react';
+import { Calculator, BookOpen, TrendingUp, Users, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -48,24 +49,6 @@ const Index = () => {
     }
   ];
 
-  const features = [
-    {
-      title: 'Exercices Interactifs',
-      description: 'Plus de 500 exercices avec correction automatique et explications détaillées',
-      icon: Calculator
-    },
-    {
-      title: 'Progression Adaptative',
-      description: 'Le niveau s\'adapte à votre rythme pour un apprentissage optimal',
-      icon: TrendingUp
-    },
-    {
-      title: 'Théorie Complète',
-      description: 'Cours détaillés avec exemples et démonstrations interactives',
-      icon: BookOpen
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
@@ -80,9 +63,6 @@ const Index = () => {
                 MathLearn
               </h1>
             </div>
-            <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700">
-              Commencer
-            </Button>
           </div>
         </div>
       </header>
@@ -91,20 +71,17 @@ const Index = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
           <h2 className="text-5xl font-bold text-slate-900 mb-6">
-            Maîtrisez les 
+            Apprentissage des 
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> mathématiques</span>
           </h2>
           <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-            De la seconde à la L1, progressez à votre rythme avec nos exercices interactifs 
-            et nos cours adaptés au programme français.
+            Ressources pédagogiques pour l'apprentissage des mathématiques 
+            du lycée jusqu'au niveau L1. Explorez les concepts à votre rythme.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-lg px-8 py-3">
-              Commencer gratuitement
+              Explorer les domaines
               <ChevronRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-3 border-slate-300">
-              Voir les cours
             </Button>
           </div>
         </div>
@@ -113,8 +90,8 @@ const Index = () => {
       {/* Math Topics */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-slate-900 mb-4">Explorez les domaines</h3>
-          <p className="text-lg text-slate-600">Choisissez votre domaine d'étude et progressez étape par étape</p>
+          <h3 className="text-3xl font-bold text-slate-900 mb-4">Domaines d'étude</h3>
+          <p className="text-lg text-slate-600">Choisissez votre domaine d'étude et explorez les concepts mathématiques</p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -139,7 +116,7 @@ const Index = () => {
                       <span>{topic.exercises} exercices</span>
                     </div>
                     <Button variant="ghost" className="w-full justify-between group-hover:bg-slate-50">
-                      Commencer
+                      Découvrir
                       <ChevronRight className="w-4 h-4" />
                     </Button>
                   </CardContent>
@@ -150,11 +127,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Educational Features */}
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-slate-900 mb-4">Pourquoi choisir MathLearn ?</h3>
+            <h3 className="text-3xl font-bold text-slate-900 mb-4">Ressources pédagogiques</h3>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -162,46 +139,46 @@ const Index = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calculator className="w-8 h-8 text-white" />
               </div>
-              <h4 className="text-xl font-semibold text-slate-900 mb-2">Exercices Interactifs</h4>
-              <p className="text-slate-600">Plus de 500 exercices avec correction automatique et explications détaillées</p>
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">Exercices Pratiques</h4>
+              <p className="text-slate-600">Collection d'exercices avec corrections détaillées pour approfondir votre compréhension</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
-              <h4 className="text-xl font-semibold text-slate-900 mb-2">Progression Adaptative</h4>
-              <p className="text-slate-600">Le niveau s'adapte à votre rythme pour un apprentissage optimal</p>
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">Progression Structurée</h4>
+              <p className="text-slate-600">Parcours d'apprentissage organisé selon les programmes scolaires</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <BookOpen className="w-8 h-8 text-white" />
               </div>
-              <h4 className="text-xl font-semibold text-slate-900 mb-2">Théorie Complète</h4>
-              <p className="text-slate-600">Cours détaillés avec exemples et démonstrations interactives</p>
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">Cours Théoriques</h4>
+              <p className="text-slate-600">Concepts mathématiques expliqués avec des exemples concrets</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Stats Section */}
       <section className="bg-gradient-to-r from-blue-500 to-purple-600 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-white mb-2">500+</div>
+              <div className="text-4xl font-bold text-white mb-2">575</div>
               <div className="text-blue-100">Exercices</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-white mb-2">15</div>
+              <div className="text-4xl font-bold text-white mb-2">16</div>
               <div className="text-blue-100">Chapitres</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-white mb-2">98%</div>
-              <div className="text-blue-100">Taux de réussite</div>
+              <div className="text-4xl font-bold text-white mb-2">4</div>
+              <div className="text-blue-100">Domaines</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-white mb-2">24/7</div>
-              <div className="text-blue-100">Disponible</div>
+              <div className="text-4xl font-bold text-white mb-2">Libre</div>
+              <div className="text-blue-100">Accès</div>
             </div>
           </div>
         </div>
@@ -218,12 +195,12 @@ const Index = () => {
               <h1 className="text-xl font-bold">MathLearn</h1>
             </div>
             <p className="text-slate-400 mb-4">
-              Votre plateforme d'apprentissage des mathématiques du lycée à l'université
+              Ressources pédagogiques pour l'apprentissage des mathématiques
             </p>
             <div className="flex justify-center space-x-6 text-sm text-slate-400">
               <Link to="#" className="hover:text-white transition-colors">À propos</Link>
+              <Link to="#" className="hover:text-white transition-colors">Ressources</Link>
               <Link to="#" className="hover:text-white transition-colors">Contact</Link>
-              <Link to="#" className="hover:text-white transition-colors">Mentions légales</Link>
             </div>
           </div>
         </div>
