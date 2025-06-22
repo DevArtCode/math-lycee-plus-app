@@ -22,8 +22,13 @@ import AlgebraArithmeticExercisePage from "./pages/algebra/arithmetic/ExercisePa
 import AlgebraSequencesCoursePage from "./pages/algebra/sequences/CoursePage";
 import AlgebraSequencesExercisePage from "./pages/algebra/sequences/ExercisePage";
 
+// Geometry chapter pages
+import GeometryPlaneCoursePage from "./pages/geometry/plane/CoursePage";
+import GeometryPlaneExercisePage from "./pages/geometry/plane/ExercisePage";
+
 // Bilan and exam pages
 import AlgebraBilanPage from "./pages/algebra/BilanPage";
+import GeometryBilanPage from "./pages/geometry/BilanPage";
 import MegaBilanPage from "./pages/MegaBilanPage";
 import ExamPage from "./pages/ExamPage";
 import NotFound from "./pages/NotFound";
@@ -57,8 +62,13 @@ const App = () => (
           <Route path="/algebra/sequences/course" element={<AlgebraSequencesCoursePage />} />
           <Route path="/algebra/sequences/exercise" element={<AlgebraSequencesExercisePage />} />
 
+          {/* Geometry chapter routes */}
+          <Route path="/geometry/plane/course" element={<GeometryPlaneCoursePage />} />
+          <Route path="/geometry/plane/exercise" element={<GeometryPlaneExercisePage />} />
+
           {/* Bilan and exam routes */}
           <Route path="/algebra/bilan" element={<AlgebraBilanPage />} />
+          <Route path="/geometry/bilan" element={<GeometryBilanPage />} />
           <Route path="/mega-bilan" element={<MegaBilanPage />} />
           <Route path="/exam/:examId" element={<ExamPage />} />
 

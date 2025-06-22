@@ -1,17 +1,19 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, ArrowLeft, PlayCircle } from 'lucide-react';
+import { BookOpen, ArrowLeft, PlayCircle, Trophy, Clock, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, Car
+Description, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const Geometry = () => {
   const chapters = [
     {
-      id: 1,
-      title: 'Géométrie plane',
+      id: 'geometry-plane',
+      title: '📐 Géométrie plane',
       description: 'Vecteurs, produit scalaire et théorème d\'Al-Kashi',
+      level: 'Terminale',
       exercises: 34,
       difficulty: 'Moyen',
       content: [
@@ -20,12 +22,15 @@ const Geometry = () => {
         'Orthogonalité : u⃗·v⃗ = 0',
         'Théorème d\'Al-Kashi',
         'Applications aux triangles'
-      ]
+      ],
+      courseUrl: '/geometry/plane/course',
+      exerciseUrl: '/geometry/plane/exercise'
     },
     {
-      id: 2,
-      title: 'Géométrie dans l\'espace',
+      id: 'geometry-space',
+      title: '🌐 Géométrie dans l\'espace',
       description: 'Repères orthonormés, plans et droites dans ℝ³',
+      level: 'Terminale → L1',
       exercises: 28,
       difficulty: 'Difficile',
       content: [
@@ -34,12 +39,15 @@ const Geometry = () => {
         'Produit scalaire dans l\'espace',
         'Projection orthogonale',
         'Équation cartésienne : ax + by + cz + d = 0'
-      ]
+      ],
+      courseUrl: '/geometry/space/course',
+      exerciseUrl: '/geometry/space/exercise'
     },
     {
-      id: 3,
-      title: 'Trigonométrie',
+      id: 'trigonometry',
+      title: '📊 Trigonométrie',
       description: 'Fonctions trigonométriques, cercle unité et identités',
+      level: 'Seconde → Terminale',
       exercises: 42,
       difficulty: 'Moyen',
       content: [
@@ -48,12 +56,15 @@ const Geometry = () => {
         'Identités fondamentales',
         'Équations trigonométriques',
         'Formules d\'addition'
-      ]
+      ],
+      courseUrl: '/geometry/trigonometry/course',
+      exerciseUrl: '/geometry/trigonometry/exercise'
     },
     {
-      id: 4,
-      title: 'Géométrie complexe',
+      id: 'complex-geometry',
+      title: '🔄 Géométrie complexe',
       description: 'Représentation complexe, rotations et transformations',
+      level: 'Terminale → L1',
       exercises: 25,
       difficulty: 'Difficile',
       content: [
@@ -62,7 +73,9 @@ const Geometry = () => {
         'Alignement et cercles',
         'Distance via les complexes',
         'Transformations du plan'
-      ]
+      ],
+      courseUrl: '/geometry/complex/course',
+      exerciseUrl: '/geometry/complex/exercise'
     }
   ];
 
@@ -76,7 +89,7 @@ const Geometry = () => {
               <Link to="/">
                 <Button variant="ghost" size="sm">
                   <ArrowLeft className="w-4 h-4 mr-2" />
-                  Retour
+                  Accueil
                 </Button>
               </Link>
               <div className="flex items-center space-x-2">
@@ -90,42 +103,36 @@ const Geometry = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Content */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Découvrez la <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">Géométrie</span>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent mb-4">
+            Géométrie & Formes
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            De la géométrie plane aux espaces complexes, explorez les formes et les transformations
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Explorez l'univers des formes, des espaces et des transformations géométriques
           </p>
         </div>
 
         {/* Chapters Grid */}
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {chapters.map((chapter) => (
-            <Card key={chapter.id} className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-0 shadow-lg">
+            <Card key={chapter.id} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="h-2 bg-gradient-to-r from-green-500 to-green-600" />
               <CardHeader>
-                <div className="flex justify-between items-start mb-2">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <BookOpen className="w-6 h-6 text-white" />
-                  </div>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                    chapter.difficulty === 'Facile' ? 'bg-green-100 text-green-800' :
-                    chapter.difficulty === 'Moyen' ? 'bg-yellow-100 text-yellow-800' :
-                    'bg-red-100 text-red-800'
-                  }`}>
-                    {chapter.difficulty}
-                  </span>
-                </div>
-                <CardTitle className="text-xl text-slate-900">{chapter.title}</CardTitle>
+                <CardTitle className="text-xl text-slate-900 flex items-center">
+                  {chapter.title}
+                </CardTitle>
                 <CardDescription className="text-slate-600">
                   {chapter.description}
                 </CardDescription>
+                <div className="flex justify-between items-center text-sm text-slate-500 mt-2">
+                  <span>{chapter.level}</span>
+                  <span>{chapter.exercises} exercices</span>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="mb-4">
-                  <h4 className="font-medium text-slate-800 mb-2">Contenu du chapitre :</h4>
                   <ul className="text-sm text-slate-600 space-y-1">
                     {chapter.content.map((item, index) => (
                       <li key={index} className="flex items-start">
@@ -135,21 +142,54 @@ const Geometry = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm text-slate-500">{chapter.exercises} exercices</span>
-                </div>
-                <div className="flex gap-2">
-                  <Button className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
-                    <PlayCircle className="w-4 h-4 mr-2" />
-                    Commencer
-                  </Button>
-                  <Button variant="outline" className="flex-1">
-                    Voir le cours
-                  </Button>
+                <div className="flex space-x-2">
+                  <Link to={chapter.courseUrl} className="flex-1">
+                    <Button variant="outline" className="w-full">
+                      <BookOpen className="w-4 h-4 mr-2" />
+                      Cours
+                    </Button>
+                  </Link>
+                  <Link to={chapter.exerciseUrl} className="flex-1">
+                    <Button className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
+                      <PlayCircle className="w-4 h-4 mr-2" />
+                      Exercices
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Actions */}
+        <div className="grid md:grid-cols-3 gap-6">
+          <Link to="/geometry/bilan">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+              <CardHeader className="text-center">
+                <Trophy className="w-12 h-12 mx-auto text-green-600 mb-2" />
+                <CardTitle>Bilan Géométrie</CardTitle>
+                <CardDescription>Exercices de synthèse</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+          <Link to="/mega-bilan">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+              <CardHeader className="text-center">
+                <FileText className="w-12 h-12 mx-auto text-green-600 mb-2" />
+                <CardTitle>Méga Bilan</CardTitle>
+                <CardDescription>Synthèse générale</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+          <Link to="/exam/geometry">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer">
+              <CardHeader className="text-center">
+                <Clock className="w-12 h-12 mx-auto text-green-600 mb-2" />
+                <CardTitle>Examens</CardTitle>
+                <CardDescription>Tests chronométrés</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
         </div>
 
         {/* Formules importantes */}
