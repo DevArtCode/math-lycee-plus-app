@@ -44,7 +44,7 @@ const ProbabilityBasicsCoursePage = () => {
               <div className="bg-orange-50 p-4 rounded-lg">
                 <p className="font-mono text-sm">
                   <strong>Exemple :</strong> Lancer d'un dé à 6 faces<br/>
-                  Ω = {1, 2, 3, 4, 5, 6}
+                  Ω = {'{1, 2, 3, 4, 5, 6}'}
                 </p>
               </div>
             </div>
@@ -139,7 +139,7 @@ const ProbabilityBasicsCoursePage = () => {
             <div>
               <h3 className="text-lg font-semibold mb-2">Exemple 1 : Lancer de dé</h3>
               <p className="text-slate-700 mb-2">
-                Soit A = "obtenir un nombre pair" = {2, 4, 6}
+                Soit A = "obtenir un nombre pair" = {'{2, 4, 6}'}
               </p>
               <p className="font-mono text-sm bg-gray-50 p-2 rounded">
                 P(A) = 3/6 = 1/2
