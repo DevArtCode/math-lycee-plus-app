@@ -10,87 +10,63 @@ const Analysis = () => {
   const chapters = [
     {
       id: 1,
-      title: 'Fonctions et graphiques',
-      description: 'Domaines, variations et fonctions usuelles',
-      exercises: 36,
-      difficulty: 'Facile',
-      content: [
-        'Domaine de définition',
-        'Croissance/décroissance',
-        'Parité : fonctions paire/impaire',
-        'Fonction composée',
-        'Fonctions usuelles : x^n, √x, 1/x, e^x, ln(x), sin(x), cos(x)'
-      ]
-    },
-    {
-      id: 2,
-      title: 'Limites et continuité',
-      description: 'Calcul de limites et théorèmes fondamentaux',
-      exercises: 32,
-      difficulty: 'Moyen',
-      content: [
-        'lim(x→a) f(x) = ℓ',
-        'Limites à l\'infini',
-        'Formes indéterminées',
-        'Théorème des valeurs intermédiaires',
-        'Asymptotes horizontales et obliques'
-      ]
-    },
-    {
-      id: 3,
-      title: 'Dérivation',
-      description: 'Calcul différentiel et applications géométriques',
+      title: 'Fonctions et limites',
+      description: 'Étude des fonctions, continuité et calcul de limites',
       exercises: 45,
       difficulty: 'Moyen',
       content: [
-        'f\'(x) = lim(h→0) [f(x+h) - f(x)]/h',
-        'Dérivées usuelles : (x^n)\' = nx^(n-1)',
-        '(e^x)\' = e^x, (ln x)\' = 1/x',
-        '(sin x)\' = cos x, (cos x)\' = -sin x',
-        'Équation de tangente : y = f\'(a)(x-a) + f(a)'
-      ]
+        'Domaine de définition et ensemble image',
+        'Limites finies et infinies',
+        'Continuité en un point et sur un intervalle',
+        'Théorème des valeurs intermédiaires',
+        'Asymptotes verticales et horizontales'
+      ],
+      path: '/analysis/functions'
     },
     {
-      id: 4,
-      title: 'Convexité',
-      description: 'Étude de la courbure et points d\'inflexion',
-      exercises: 24,
-      difficulty: 'Difficile',
+      id: 2,
+      title: 'Dérivation',
+      description: 'Calcul différentiel et applications géométriques',
+      exercises: 52,
+      difficulty: 'Moyen',
       content: [
-        'f\'\' > 0 ⇒ f convexe',
-        'f\'\' < 0 ⇒ f concave',
-        'Point d\'inflexion : changement de signe de f\'\'',
-        'Inégalité de convexité',
-        'Applications à l\'optimisation'
-      ]
+        'Nombre dérivé et fonction dérivée',
+        'Règles de dérivation (somme, produit, quotient)',
+        'Dérivée des fonctions composées',
+        'Tangente à une courbe',
+        'Variations et extremums'
+      ],
+      path: '/analysis/derivatives'
     },
     {
-      id: 5,
-      title: 'Intégration',
-      description: 'Primitives, intégrales définies et calcul d\'aires',
+      id: 3,
+      title: 'Primitives et intégrales',
+      description: 'Calcul intégral et applications',
       exercises: 38,
       difficulty: 'Difficile',
       content: [
-        'Primitive : F\'(x) = f(x)',
-        'Intégrale définie : ∫[a,b] f(x)dx = F(b) - F(a)',
-        'Aire entre deux courbes',
-        'Intégration par parties : ∫uv\' = uv - ∫u\'v',
-        'Valeur moyenne d\'une fonction'
-      ]
+        'Primitives usuelles',
+        'Intégrale définie (Riemann)',
+        'Théorème fondamental de l\'analyse',
+        'Calcul d\'aires sous une courbe',
+        'Intégration par parties (introduction)'
+      ],
+      path: '/analysis/integrals'
     },
     {
-      id: 6,
-      title: 'Équations différentielles',
-      description: 'y\' = ay + b et applications',
-      exercises: 22,
+      id: 4,
+      title: 'Suites numériques',
+      description: 'Convergence et comportement asymptotique',
+      exercises: 41,
       difficulty: 'Difficile',
       content: [
-        'y\' = ay + b',
-        'Solution : y(x) = Ce^(ax) - b/a',
-        'y\' = f(x) ⇒ y = ∫f(x)dx',
-        'Conditions initiales',
-        'Applications physiques (croissance, décroissance)'
-      ]
+        'Suites arithmétiques et géométriques',
+        'Limite d\'une suite',
+        'Théorèmes de convergence',
+        'Suites monotones et majorées',
+        'Suites récurrentes'
+      ],
+      path: '/analysis/sequences'
     }
   ];
 
@@ -122,10 +98,10 @@ const Analysis = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Explorez l'<span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">Analyse</span>
+            Maîtrisez l'<span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">Analyse</span>
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Des fonctions aux équations différentielles, plongez dans l'univers du calcul infinitésimal
+            Fonctions, dérivées, intégrales et suites : explorez les fondements du calcul différentiel et intégral
           </p>
         </div>
 
@@ -187,52 +163,51 @@ const Analysis = () => {
               <CardTitle className="text-2xl text-slate-900">📝 Formules essentielles</CardTitle>
             </CardHeader>
             <CardContent>
-              <Tabs defaultValue="derivees" className="w-full">
+              <Tabs defaultValue="limites" className="w-full">
                 <TabsList className="grid w-full grid-cols-4">
-                  <TabsTrigger value="derivees">Dérivées</TabsTrigger>
                   <TabsTrigger value="limites">Limites</TabsTrigger>
+                  <TabsTrigger value="derivees">Dérivées</TabsTrigger>
                   <TabsTrigger value="integrales">Intégrales</TabsTrigger>
-                  <TabsTrigger value="eq-diff">Éq. diff.</TabsTrigger>
+                  <TabsTrigger value="suites">Suites</TabsTrigger>
                 </TabsList>
-                <TabsContent value="derivees" className="space-y-4">
+                <TabsContent value="limites" className="space-y-4">
                   <div className="bg-purple-50 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Dérivées usuelles :</h4>
+                    <h4 className="font-semibold mb-2">Limites usuelles :</h4>
                     <ul className="space-y-2 font-mono text-sm">
-                      <li>(x^n)' = nx^(n-1)</li>
-                      <li>(e^x)' = e^x</li>
-                      <li>(ln x)' = 1/x</li>
-                      <li>(sin x)' = cos x, (cos x)' = -sin x</li>
+                      <li>lim(x→∞) 1/x = 0</li>
+                      <li>lim(x→0) sin(x)/x = 1</li>
+                      <li>lim(x→0) (1+x)^(1/x) = e</li>
                     </ul>
                   </div>
                 </TabsContent>
-                <TabsContent value="limites" className="space-y-4">
+                <TabsContent value="derivees" className="space-y-4">
                   <div className="bg-blue-50 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Limites importantes :</h4>
+                    <h4 className="font-semibold mb-2">Dérivées usuelles :</h4>
                     <ul className="space-y-2 font-mono text-sm">
-                      <li>lim(x→0) sin(x)/x = 1</li>
-                      <li>lim(x→∞) (1 + 1/x)^x = e</li>
-                      <li>lim(x→0) (e^x - 1)/x = 1</li>
+                      <li>(x^n)' = n·x^(n-1)</li>
+                      <li>(e^x)' = e^x</li>
+                      <li>(ln(x))' = 1/x</li>
+                      <li>(sin(x))' = cos(x)</li>
                     </ul>
                   </div>
                 </TabsContent>
                 <TabsContent value="integrales" className="space-y-4">
                   <div className="bg-green-50 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Intégration :</h4>
+                    <h4 className="font-semibold mb-2">Primitives usuelles :</h4>
                     <ul className="space-y-2 font-mono text-sm">
                       <li>∫ x^n dx = x^(n+1)/(n+1) + C</li>
                       <li>∫ e^x dx = e^x + C</li>
                       <li>∫ 1/x dx = ln|x| + C</li>
-                      <li>∫[a,b] f(x)dx = F(b) - F(a)</li>
                     </ul>
                   </div>
                 </TabsContent>
-                <TabsContent value="eq-diff" className="space-y-4">
+                <TabsContent value="suites" className="space-y-4">
                   <div className="bg-orange-50 p-4 rounded-lg">
-                    <h4 className="font-semibold mb-2">Équations différentielles :</h4>
+                    <h4 className="font-semibold mb-2">Suites classiques :</h4>
                     <ul className="space-y-2 font-mono text-sm">
-                      <li>y' = ay + b</li>
-                      <li>Solution : y = Ce^(ax) - b/a</li>
-                      <li>y' = f(x) ⇒ y = ∫f(x)dx</li>
+                      <li>Arithmétique : u_n = u_0 + n·r</li>
+                      <li>Géométrique : u_n = u_0 · q^n</li>
+                      <li>S_n = n(u_1 + u_n)/2 (arith.)</li>
                     </ul>
                   </div>
                 </TabsContent>

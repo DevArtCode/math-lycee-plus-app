@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Progress } from '@/components/ui/progress';
 
 const ProbabilityBasicsExercisePage = () => {
-  const [currentExercise, setCurrentExercise] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<{[key: number]: number}>({});
   const [showResults, setShowResults] = useState<{[key: number]: boolean}>({});
 
@@ -81,6 +80,42 @@ const ProbabilityBasicsExercisePage = () => {
       options: ["Il est impossible", "Il est certain", "Il est rare", "Il est équiprobable"],
       correct: 1,
       explanation: "Un événement de probabilité 1 est un événement certain qui se produit toujours."
+    },
+    // Nouveaux exercices
+    {
+      id: 11,
+      question: "On lance deux dés. Quelle est la probabilité d'obtenir une somme paire ?",
+      options: ["1/2", "1/3", "2/3", "1/4"],
+      correct: 0,
+      explanation: "Une somme est paire si les deux dés ont même parité. Il y a 18 cas favorables sur 36."
+    },
+    {
+      id: 12,
+      question: "Dans un sac, il y a 5 billes rouges, 3 bleues et 2 vertes. Quelle est P(pas rouge) ?",
+      options: ["5/10", "3/10", "2/10", "5/10"],
+      correct: 0,
+      explanation: "P(pas rouge) = 1 - P(rouge) = 1 - 5/10 = 1/2"
+    },
+    {
+      id: 13,
+      question: "Quelle est la probabilité d'obtenir au moins un 6 en lançant un dé 4 fois ?",
+      options: ["1 - (5/6)⁴", "4/6", "(1/6)⁴", "1/6"],
+      correct: 0,
+      explanation: "P(au moins un 6) = 1 - P(aucun 6) = 1 - (5/6)⁴"
+    },
+    {
+      id: 14,
+      question: "On tire successivement 2 cartes d'un jeu de 32 cartes, sans remise. P(2 As) = ?",
+      options: ["4/32 × 3/31", "4/32 × 4/32", "8/32", "1/8"],
+      correct: 0,
+      explanation: "P(1er As) × P(2ème As | 1er As) = 4/32 × 3/31"
+    },
+    {
+      id: 15,
+      question: "Une urne contient 10 boules numérotées de 1 à 10. P(nombre premier) = ?",
+      options: ["4/10", "5/10", "3/10", "6/10"],
+      correct: 0,
+      explanation: "Les nombres premiers ≤ 10 sont : 2, 3, 5, 7. Soit 4 nombres sur 10."
     }
   ];
 

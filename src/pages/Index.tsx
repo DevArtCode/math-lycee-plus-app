@@ -14,7 +14,7 @@ const Index = () => {
       icon: Calculator,
       color: 'from-blue-500 to-blue-600',
       level: 'Seconde → L1',
-      exercises: 156,
+      exercises: 198,
       path: '/algebra'
     },
     {
@@ -24,7 +24,7 @@ const Index = () => {
       icon: TrendingUp,
       color: 'from-purple-500 to-purple-600',
       level: 'Première → L1',
-      exercises: 203,
+      exercises: 176,
       path: '/analysis'
     },
     {
@@ -34,7 +34,7 @@ const Index = () => {
       icon: BookOpen,
       color: 'from-green-500 to-green-600',
       level: 'Seconde → L1',
-      exercises: 127,
+      exercises: 142,
       path: '/geometry'
     },
     {
@@ -44,7 +44,7 @@ const Index = () => {
       icon: Users,
       color: 'from-orange-500 to-orange-600',
       level: 'Première → L1',
-      exercises: 89,
+      exercises: 336,
       path: '/probability'
     },
     {
@@ -54,7 +54,7 @@ const Index = () => {
       icon: Brain,
       color: 'from-purple-500 to-purple-600',
       level: 'Terminale → L1',
-      exercises: 102,
+      exercises: 124,
       path: '/logic'
     },
     {
@@ -64,7 +64,7 @@ const Index = () => {
       icon: Code,
       color: 'from-orange-500 to-orange-600',
       level: 'Seconde → L1',
-      exercises: 140,
+      exercises: 165,
       path: '/algorithm'
     }
   ];
@@ -201,7 +201,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-white mb-2">817</div>
+              <div className="text-4xl font-bold text-white mb-2">1,141</div>
               <div className="text-blue-100">Exercices</div>
             </div>
             <div>

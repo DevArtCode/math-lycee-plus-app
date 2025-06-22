@@ -12,7 +12,7 @@ const Probability = () => {
       id: 1,
       title: 'Bases de probabilité',
       description: 'Univers Ω, événements et calculs de probabilités',
-      exercises: 25,
+      exercises: 65,
       difficulty: 'Facile',
       content: [
         'Univers Ω et événements',
@@ -20,13 +20,15 @@ const Probability = () => {
         'Union : P(A∪B) = P(A) + P(B) - P(A∩B)',
         'Événements contraires et incompatibles',
         'Dénombrement et equiprobabilité'
-      ]
+      ],
+      coursePath: '/probability/basics/course',
+      exercisePath: '/probability/basics/exercise'
     },
     {
       id: 2,
       title: 'Probabilités conditionnelles',
       description: 'P(B|A), indépendance et formule de Bayes',
-      exercises: 32,
+      exercises: 78,
       difficulty: 'Moyen',
       content: [
         'P(B|A) = P(A∩B)/P(A)',
@@ -34,13 +36,15 @@ const Probability = () => {
         'Formule des probabilités totales',
         'Formule de Bayes',
         'Arbres de probabilité'
-      ]
+      ],
+      coursePath: '/probability/conditional/course',
+      exercisePath: '/probability/conditional/exercise'
     },
     {
       id: 3,
       title: 'Variables aléatoires discrètes',
       description: 'Lois discrètes, espérance et variance',
-      exercises: 38,
+      exercises: 92,
       difficulty: 'Moyen',
       content: [
         'Variable aléatoire X : valeurs et probabilités',
@@ -48,13 +52,15 @@ const Probability = () => {
         'Variance : V(X) = E(X²) - E(X)²',
         'Loi binomiale : P(X=k) = C(n,k)p^k(1-p)^(n-k)',
         'Loi géométrique et de Poisson'
-      ]
+      ],
+      coursePath: '/probability/variables/course',
+      exercisePath: '/probability/variables/exercise'
     },
     {
       id: 4,
       title: 'Lois continues',
       description: 'Densité, loi uniforme et introduction à la loi normale',
-      exercises: 28,
+      exercises: 54,
       difficulty: 'Difficile',
       content: [
         'Densité f(x), P(a≤X≤b) = ∫f(x)dx',
@@ -62,13 +68,15 @@ const Probability = () => {
         'Introduction à la loi normale',
         'Théorème central limite (L1)',
         'Applications statistiques'
-      ]
+      ],
+      coursePath: '/probability/continuous/course',
+      exercisePath: '/probability/continuous/exercise'
     },
     {
       id: 5,
       title: 'Statistiques descriptives',
       description: 'Moyennes, médianes et représentations graphiques',
-      exercises: 22,
+      exercises: 47,
       difficulty: 'Facile',
       content: [
         'Moyenne, médiane, mode',
@@ -76,7 +84,9 @@ const Probability = () => {
         'Variance et écart-type',
         'Diagrammes en boîte',
         'Corrélation et régression linéaire'
-      ]
+      ],
+      coursePath: '/probability/statistics/course',
+      exercisePath: '/probability/statistics/exercise'
     }
   ];
 
@@ -153,13 +163,17 @@ const Probability = () => {
                   <span className="text-sm text-slate-500">{chapter.exercises} exercices</span>
                 </div>
                 <div className="flex gap-2">
-                  <Button className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
-                    <PlayCircle className="w-4 h-4 mr-2" />
-                    Commencer
-                  </Button>
-                  <Button variant="outline" className="flex-1">
-                    Voir le cours
-                  </Button>
+                  <Link to={chapter.exercisePath} className="flex-1">
+                    <Button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
+                      <PlayCircle className="w-4 h-4 mr-2" />
+                      Commencer
+                    </Button>
+                  </Link>
+                  <Link to={chapter.coursePath} className="flex-1">
+                    <Button variant="outline" className="w-full">
+                      Voir le cours
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
