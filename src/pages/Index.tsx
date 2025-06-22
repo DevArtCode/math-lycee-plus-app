@@ -10,10 +10,10 @@ const Index = () => {
     {
       id: 'algebra',
       title: 'Algèbre',
-      description: 'Équations, polynômes, systèmes linéaires',
+      description: 'Nombres, calcul, arithmétique, suites',
       icon: Calculator,
       color: 'from-blue-500 to-blue-600',
-      level: 'Seconde → Terminale',
+      level: 'Seconde → L1',
       exercises: 156,
       path: '/algebra'
     },
@@ -30,22 +30,42 @@ const Index = () => {
     {
       id: 'geometry',
       title: 'Géométrie',
-      description: 'Géométrie plane, espace, trigonométrie',
+      description: 'Géométrie plane, espace, complexe',
       icon: BookOpen,
       color: 'from-green-500 to-green-600',
-      level: 'Seconde → Terminale',
+      level: 'Seconde → L1',
       exercises: 127,
       path: '/geometry'
     },
     {
       id: 'probability',
       title: 'Probabilités',
-      description: 'Statistiques, probabilités, lois de probabilité',
+      description: 'Statistiques, lois, variables aléatoires',
       icon: Users,
       color: 'from-orange-500 to-orange-600',
       level: 'Première → L1',
       exercises: 89,
       path: '/probability'
+    },
+    {
+      id: 'logic',
+      title: 'Logique',
+      description: 'Logique, ensembles, récurrence',
+      icon: Brain,
+      color: 'from-purple-500 to-purple-600',
+      level: 'Terminale → L1',
+      exercises: 102,
+      path: '/logic'
+    },
+    {
+      id: 'algorithm',
+      title: 'Algorithmique',
+      description: 'Python, programmation mathématique',
+      icon: Code,
+      color: 'from-orange-500 to-orange-600',
+      level: 'Seconde → L1',
+      exercises: 140,
+      path: '/algorithm'
     }
   ];
 
@@ -94,7 +114,7 @@ const Index = () => {
           <p className="text-lg text-slate-600">Choisissez votre domaine d'étude et explorez les concepts mathématiques</p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mathTopics.map((topic) => {
             const Icon = topic.icon;
             return (
@@ -124,6 +144,22 @@ const Index = () => {
               </Link>
             );
           })}
+        </div>
+
+        {/* Mega Bilan CTA */}
+        <div className="mt-12 text-center">
+          <Link to="/mega-bilan">
+            <Card className="border-0 shadow-xl bg-gradient-to-r from-purple-50 to-blue-50 hover:shadow-2xl transition-all duration-300 cursor-pointer max-w-2xl mx-auto">
+              <CardContent className="py-8">
+                <Brain className="w-16 h-16 mx-auto text-purple-600 mb-4" />
+                <h3 className="text-2xl font-bold text-slate-800 mb-2">Méga Bilan Interdisciplinaire</h3>
+                <p className="text-slate-600 mb-4">
+                  Exercices complexes combinant plusieurs domaines mathématiques
+                </p>
+                <Badge className="bg-purple-100 text-purple-800">Niveau Expert</Badge>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </section>
 
@@ -165,15 +201,15 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-white mb-2">575</div>
+              <div className="text-4xl font-bold text-white mb-2">817</div>
               <div className="text-blue-100">Exercices</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-white mb-2">16</div>
+              <div className="text-4xl font-bold text-white mb-2">24</div>
               <div className="text-blue-100">Chapitres</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-white mb-2">4</div>
+              <div className="text-4xl font-bold text-white mb-2">6</div>
               <div className="text-blue-100">Domaines</div>
             </div>
             <div>
