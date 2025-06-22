@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Calculator, BookOpen, TrendingUp, Users, ChevronRight } from 'lucide-react';
+import { Calculator, BookOpen, TrendingUp, Users, ChevronRight, Brain, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 const Index = () => {
   const mathTopics = [
