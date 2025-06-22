@@ -1,154 +1,98 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Brain, ArrowLeft, Calculator, BookOpen, TrendingUp, Users, Target } from 'lucide-react';
+import { ArrowLeft, Brain, Clock, Star, Trophy, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import ExerciseList from '@/components/ExerciseList';
 
 const MegaBilanPage = () => {
-  const [expandedExercise, setExpandedExercise] = useState<string | null>(null);
-  const [showSolution, setShowSolution] = useState<string | null>(null);
+  const [selectedMegaBilan, setSelectedMegaBilan] = useState<string | null>(null);
 
-  const megaExercises = [
+  const megaBilans = [
     {
-      id: 'mega1',
-      title: 'Modélisation d\'une épidémie',
-      domains: ['Analyse', 'Probabilités', 'Algorithmique'],
-      difficulty: 'Avancé' as const,
-      points: 25,
-      duration: '45 min',
-      statement: `Une épidémie se propage selon le modèle logistique :
-N(t) = L / (1 + Ae^(-kt))
-
-où N(t) est le nombre de personnes infectées au temps t (en jours), L = 10000 est la population maximale pouvant être infectée, A et k sont des constantes à déterminer.
-
-Données initiales :
-- N(0) = 100 (100 personnes infectées au jour 0)
-- N(7) = 500 (500 personnes infectées au jour 7)
-
-1. [Algèbre] Déterminer les constantes A et k
-2. [Analyse] Étudier la fonction N(t) : limites, dérivée, croissance
-3. [Probabilités] Si on teste aléatoirement 50 personnes au jour 14, quelle est la probabilité d'en trouver exactement 3 infectées ?
-4. [Algorithmique] Écrire un algorithme Python pour tracer l'évolution de N(t)`,
-      solution: `1. Détermination des constantes :
-N(0) = 100 = L/(1+A) = 10000/(1+A) ⟹ A = 99
-N(7) = 500 = 10000/(1+99e^(-7k))
-1+99e^(-7k) = 20 ⟹ e^(-7k) = 19/99 ⟹ k ≈ 0,23
-
-2. Étude de la fonction :
-- lim(t→+∞) N(t) = L = 10000
-- N'(t) = LkAe^(-kt)/(1+Ae^(-kt))² > 0 ⟹ croissante
-- Point d'inflexion en t = ln(A)/k
-
-3. Probabilité :
-N(14) ≈ 1847, donc p = 1847/10000 = 0,1847
-X ~ B(50; 0,1847), P(X=3) = C(50,3) × 0,1847³ × 0,8153⁴⁷
-
-4. Code Python :
-import numpy as np
-import matplotlib.pyplot as plt
-
-def N(t):
-    return 10000 / (1 + 99 * np.exp(-0.23 * t))
-
-t = np.linspace(0, 50, 100)
-plt.plot(t, N(t))`,
-      explanation: 'Exercice interdisciplinaire combinant modélisation mathématique, analyse de fonction et programmation.'
+      id: 'mega-1',
+      title: 'Méga Bilan 1 - Algèbre & Géométrie',
+      description: 'Combinaison de l\'algèbre et de la géométrie',
+      domains: ['Algèbre', 'Géométrie'],
+      difficulty: 'Expert',
+      duration: '120 min',
+      exercises: [
+        {
+          id: "m1-1",
+          title: "Nombres complexes et géométrie",
+          difficulty: "Avancé" as const,
+          points: 25,
+          statement: "Dans le plan complexe, on considère les points A(1+i), B(2-i) et C(-1+2i).\n1. Calculer les affixes des vecteurs AB⃗ et AC⃗\n2. Déterminer l'affixe du point D tel que ABCD soit un parallélogramme\n3. Calculer l'aire du triangle ABC\n4. Trouver l'équation du cercle circonscrit au triangle ABC",
+          hint: "Utilisez les propriétés géométriques des nombres complexes",
+          solution: "1. AB⃗ : z_B - z_A = (2-i) - (1+i) = 1-2i\n   AC⃗ : z_C - z_A = (-1+2i) - (1+i) = -2+i\n\n2. ABCD parallélogramme ⟹ AD⃗ = BC⃗\n   BC⃗ = z_C - z_B = (-1+2i) - (2-i) = -3+3i\n   z_D = z_A + BC⃗ = (1+i) + (-3+3i) = -2+4i\n\n3. Aire = (1/2)|Im(AB⃗ × AC̄⃗)|\n   AC̄⃗ = -2-i, AB⃗ × AC̄⃗ = (1-2i)(-2-i) = -2-i+4i+2i² = -4+3i\n   Aire = (1/2)|Im(-4+3i)| = 3/2\n\n4. Centre O : (A+B+C)/3, puis |z-O| = R",
+          explanation: "Synthèse complexes-géométrie avec parallélogramme et cercle circonscrit",
+          category: "Algèbre-Géométrie"
+        },
+        {
+          id: "m1-2",
+          title: "Équations et lieux géométriques",
+          difficulty: "Avancé" as const,
+          points: 20,
+          statement: "Soit l'équation (E) : z³ - (2+i)z² + (1+2i)z - i = 0\n1. Vérifier que z₁ = i est solution\n2. Factoriser le polynôme et trouver toutes les solutions\n3. Représenter les solutions dans le plan complexe\n4. Quel est le lieu géométrique des points d'affixes z tels que |z-i| = |z-1| ?",
+          hint: "Factorisation après avoir trouvé une racine évidente",
+          solution: "1. i³ - (2+i)i² + (1+2i)i - i = -i + (2+i) + (i-2) - i = 0 ✓\n\n2. Division par (z-i) :\n   z³ - (2+i)z² + (1+2i)z - i = (z-i)(z²-2z+1) = (z-i)(z-1)²\n   Solutions : z₁ = i, z₂ = z₃ = 1 (racine double)\n\n3. Points : (0,1) et (1,0) dans le plan\n\n4. |z-i| = |z-1| ⟹ distance égale aux points (0,1) et (1,0)\n   C'est la médiatrice du segment [i,1] : droite y = x",
+          explanation: "Résolution d'équations cubiques et interprétation géométrique",
+          category: "Équations-Géométrie"
+        }
+      ]
     },
     {
-      id: 'mega2',
-      title: 'Optimisation d\'un packaging',
-      domains: ['Géométrie', 'Analyse', 'Algèbre'],
-      difficulty: 'Avancé' as const,
-      points: 20,
-      duration: '35 min',
-      statement: `Une entreprise veut fabriquer des boîtes cylindriques de volume V = 1000 cm³.
-Le coût du matériau est de 2€/dm² pour la base et le couvercle, et 1€/dm² pour la surface latérale.
-
-1. [Algèbre] Exprimer la hauteur h en fonction du rayon r
-2. [Géométrie] Calculer l'aire totale de la boîte en fonction de r
-3. [Analyse] Déterminer les dimensions qui minimisent le coût
-4. [Géométrie complexe] Représenter la section de la boîte dans le plan complexe`,
-      solution: `1. V = πr²h = 1000 ⟹ h = 1000/(πr²)
-
-2. Aire totale = 2πr² + 2πrh = 2πr² + 2000/r
-
-3. Coût C(r) = 2×2πr² + 1×2000/r = 4πr² + 2000/r
-   C'(r) = 8πr - 2000/r² = 0
-   ⟹ r³ = 250/π ⟹ r ≈ 4,3 cm, h ≈ 17,2 cm
-
-4. Section : cercle de rayon r dans le plan complexe
-   |z| = r avec z = x + iy`,
-      explanation: 'Problème d\'optimisation classique combinant géométrie dans l\'espace et calcul différentiel.'
+      id: 'mega-2', 
+      title: 'Méga Bilan 2 - Algèbre & Analyse',
+      description: 'Fonctions, suites et calcul algébrique',
+      domains: ['Algèbre', 'Analyse'],
+      difficulty: 'Expert',
+      duration: '90 min',
+      exercises: [
+        {
+          id: "m2-1",
+          title: "Suite et fonction exponentielle",
+          difficulty: "Avancé" as const,
+          points: 22,
+          statement: "Soit f(x) = xe^(-x) et la suite (uₙ) définie par u₀ = 1 et uₙ₊₁ = f(uₙ)\n1. Étudier les variations de f sur [0,+∞[\n2. Montrer que la suite (uₙ) est bien définie et positive\n3. Étudier la monotonie de (uₙ)\n4. Déterminer la limite de (uₙ)",
+          hint: "Étudiez d'abord la fonction f, puis utilisez ses propriétés pour la suite",
+          solution: "1. f'(x) = e^(-x) - xe^(-x) = e^(-x)(1-x)\n   f'(x) > 0 si x < 1, f'(x) < 0 si x > 1\n   f croissante sur [0,1], décroissante sur [1,+∞[\n   Maximum en x = 1 : f(1) = 1/e\n\n2. u₀ = 1 > 0, si uₙ > 0 alors uₙ₊₁ = uₙe^(-uₙ) > 0\n\n3. uₙ₊₁ - uₙ = uₙe^(-uₙ) - uₙ = uₙ(e^(-uₙ) - 1)\n   Si uₙ > 0, alors e^(-uₙ) < 1, donc uₙ₊₁ < uₙ\n   La suite est décroissante\n\n4. (uₙ) décroissante minorée par 0, donc converge\n   Si l = lim uₙ, alors l = le^(-l)\n   Si l ≠ 0, alors 1 = e^(-l), impossible\n   Donc l = 0",
+          explanation: "Étude combinée fonction-suite avec convergence",
+          category: "Suite-Fonction"
+        }
+      ]
     },
     {
-      id: 'mega3',
-      title: 'Cryptographie RSA simplifiée',
-      domains: ['Arithmétique', 'Algorithmique', 'Logique'],
-      difficulty: 'Expert' as const,
-      points: 30,
-      duration: '50 min',
-      statement: `Implémentation simplifiée du cryptosystème RSA :
-
-1. [Arithmétique] Choisir p = 7, q = 11. Calculer n et φ(n)
-2. [Arithmétique] Choisir e tel que gcd(e, φ(n)) = 1. Calculer d tel que ed ≡ 1 [φ(n)]
-3. [Logique] Démontrer que (m^e)^d ≡ m [n] pour tout m
-4. [Algorithmique] Coder un message "MATH" (M=13, A=1, T=20, H=8)
-5. [Algorithmique] Écrire l'algorithme de décodage`,
-      solution: `1. n = p×q = 77, φ(n) = (p-1)(q-1) = 60
-
-2. e = 7 (car gcd(7,60) = 1)
-   Bézout : 7d ≡ 1 [60] ⟹ d = 43
-
-3. Par le théorème de Fermat-Euler :
-   Si gcd(m,n) = 1, alors m^φ(n)≡1[n]
-   ed = 1 + kφ(n), donc m^ed = m × (m^φ(n))^k ≡ m [n]
-
-4. Codage :
-   M: 13^7 ≡ 62 [77]
-   A: 1^7 ≡ 1 [77]  
-   T: 20^7 ≡ 62 [77]
-   H: 8^7 ≡ 57 [77]
-
-5. Décodage : c^43 mod 77 pour chaque caractère`,
-      explanation: 'Application de l\'arithmétique modulaire à la cryptographie moderne.'
+      id: 'mega-3',
+      title: 'Méga Bilan 3 - Interdisciplinaire Complet',
+      description: 'Algèbre, Géométrie, Analyse et Probabilités',
+      domains: ['Algèbre', 'Géométrie', 'Analyse', 'Probabilités'],
+      difficulty: 'Maître',
+      duration: '150 min',
+      exercises: [
+        {
+          id: "m3-1",
+          title: "Problème de synthèse complète",
+          difficulty: "Avancé" as const,
+          points: 30,
+          statement: "On lance n fois une pièce équilibrée. Soit X le nombre de 'Pile'.\n1. Quelle est la loi de X ?\n2. Calculer P(X = k) et E(X)\n3. Pour n = 100, utiliser l'approximation normale pour calculer P(45 ≤ X ≤ 55)\n4. Modéliser ce problème avec une suite géométrique de raison 1/2",
+          hint: "Combinez loi binomiale, approximation normale et suites",
+          solution: "1. X suit une loi binomiale B(n, 1/2)\n\n2. P(X = k) = C(n,k) × (1/2)ⁿ\n   E(X) = n/2\n\n3. X ~ B(100, 1/2) ≈ N(50, 25)\n   P(45 ≤ X ≤ 55) = P(-1 ≤ Z ≤ 1) ≈ 0.68\n\n4. Probabilité d'obtenir exactement k piles :\n   Suite géométrique de premier terme 1/2 et raison 1/2",
+          explanation: "Synthèse probabilités-analyse avec approximations",
+          category: "Interdisciplinaire"
+        }
+      ]
     }
   ];
 
-  const toggleExercise = (exerciseId: string) => {
-    setExpandedExercise(expandedExercise === exerciseId ? null : exerciseId);
-    setShowSolution(null);
-  };
-
-  const toggleSolution = (exerciseId: string) => {
-    setShowSolution(showSolution === exerciseId ? null : exerciseId);
-  };
-
-  const getDifficultyColor = (difficulty: string) => {
-    switch (difficulty) {
-      case 'Avancé': return 'bg-red-100 text-red-800';
-      case 'Expert': return 'bg-purple-100 text-purple-800';
-      default: return 'bg-gray-100 text-gray-800';
-    }
-  };
-
-  const getDomainIcon = (domain: string) => {
-    switch (domain) {
-      case 'Algèbre': return Calculator;
-      case 'Analyse': return TrendingUp;
-      case 'Géométrie': return BookOpen;
-      case 'Probabilités': return Users;
-      case 'Arithmétique': return Calculator;
-      case 'Algorithmique': return Brain;
-      case 'Logique': return Brain;
-      default: return Target;
-    }
+  const handleMegaBilanSelect = (bilanId: string) => {
+    setSelectedMegaBilan(selectedMegaBilan === bilanId ? null : bilanId);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50">
-      {/* Header */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50">
       <header className="bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -156,131 +100,151 @@ Le coût du matériau est de 2€/dm² pour la base et le couvercle, et 1€/dm�
               <Link to="/">
                 <Button variant="ghost" size="sm">
                   <ArrowLeft className="w-4 h-4 mr-2" />
-                  Accueil
+                  Retour à l'accueil
                 </Button>
               </Link>
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
-                  <Brain className="w-5 h-5 text-white" />
-                </div>
-                <h1 className="text-xl font-bold text-slate-900">🧠 Méga Bilan Interdisciplinaire</h1>
+                <Brain className="w-6 h-6 text-indigo-600" />
+                <h1 className="text-xl font-bold text-slate-900">Méga Bilans Interdisciplinaires</h1>
               </div>
+            </div>
+            <div className="flex gap-2">
+              <Link to="/algebra/bilan">
+                <Button variant="outline">Bilans Algèbre</Button>
+              </Link>
+              <Link to="/exam/general">
+                <Button className="bg-gradient-to-r from-indigo-500 to-purple-500">
+                  <Zap className="w-4 h-4 mr-2" />
+                  Examens
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Content */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-4">
-            Méga Bilan Interdisciplinaire
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            Méga Bilans Interdisciplinaires
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Exercices complexes combinant plusieurs domaines mathématiques
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            Défiez-vous avec des exercices complexes combinant plusieurs domaines mathématiques. 
+            Testez votre capacité à faire des liens entre les différents chapitres.
           </p>
-          <div className="flex justify-center space-x-4 mt-6">
-            <Badge className="bg-purple-100 text-purple-800">Niveau Expert</Badge>
-            <Badge className="bg-blue-100 text-blue-800">Pluridisciplinaire</Badge>
-            <Badge className="bg-green-100 text-green-800">Applications réelles</Badge>
-          </div>
         </div>
 
-        {/* Exercises */}
-        <div className="space-y-8">
-          {megaExercises.map((exercise) => (
-            <Card key={exercise.id} className="border-0 shadow-xl">
+        {/* Statistics */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <Card className="border-0 shadow-lg bg-gradient-to-r from-blue-50 to-indigo-50">
+            <CardContent className="py-6 text-center">
+              <Trophy className="w-12 h-12 mx-auto text-blue-600 mb-2" />
+              <div className="text-2xl font-bold text-blue-800">3</div>
+              <div className="text-blue-600">Méga Bilans</div>
+            </CardContent>
+          </Card>
+          <Card className="border-0 shadow-lg bg-gradient-to-r from-purple-50 to-pink-50">
+            <CardContent className="py-6 text-center">
+              <Brain className="w-12 h-12 mx-auto text-purple-600 mb-2" />
+              <div className="text-2xl font-bold text-purple-800">6</div>
+              <div className="text-purple-600">Domaines Combinés</div>
+            </CardContent>
+          </Card>
+          <Card className="border-0 shadow-lg bg-gradient-to-r from-green-50 to-emerald-50">
+            <CardContent className="py-6 text-center">
+              <Star className="w-12 h-12 mx-auto text-green-600 mb-2" />
+              <div className="text-2xl font-bold text-green-800">Expert</div>
+              <div className="text-green-600">Niveau Requis</div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="grid gap-6">
+          {megaBilans.map((megaBilan) => (
+            <Card key={megaBilan.id} className="border-0 shadow-xl">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <CardTitle className="text-xl text-purple-800 mb-2">{exercise.title}</CardTitle>
-                    <div className="flex items-center space-x-2 mb-3">
-                      <Badge className={getDifficultyColor(exercise.difficulty)}>
-                        {exercise.difficulty}
+                    <CardTitle className="text-2xl text-indigo-800 mb-2">{megaBilan.title}</CardTitle>
+                    <CardDescription className="text-lg mb-3">{megaBilan.description}</CardDescription>
+                    <div className="flex items-center gap-6">
+                      <Badge className={
+                        megaBilan.difficulty === 'Expert' ? 'bg-red-100 text-red-800' :
+                        'bg-purple-100 text-purple-800'
+                      }>
+                        <Star className="w-3 h-3 mr-1" />
+                        {megaBilan.difficulty}
                       </Badge>
-                      <Badge variant="outline">{exercise.points} points</Badge>
-                      <Badge variant="outline">⏱️ {exercise.duration}</Badge>
+                      <div className="flex items-center text-sm text-slate-600">
+                        <Clock className="w-4 h-4 mr-1" />
+                        {megaBilan.duration}
+                      </div>
+                      <div className="flex items-center text-sm text-slate-600">
+                        <Trophy className="w-4 h-4 mr-1" />
+                        {megaBilan.exercises.length} exercices
+                      </div>
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {exercise.domains.map((domain, index) => {
-                        const Icon = getDomainIcon(domain);
-                        return (
-                          <div key={index} className="flex items-center space-x-1 bg-slate-100 px-2 py-1 rounded-md">
-                            <Icon className="w-3 h-3 text-slate-600" />
-                            <span className="text-xs text-slate-600">{domain}</span>
-                          </div>
-                        );
-                      })}
+                    <div className="mt-3">
+                      <p className="text-sm text-slate-600">
+                        <strong>Domaines :</strong> {megaBilan.domains.join(' + ')}
+                      </p>
                     </div>
                   </div>
                   <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => toggleExercise(exercise.id)}
+                    onClick={() => handleMegaBilanSelect(megaBilan.id)}
+                    size="lg"
+                    className="bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600"
                   >
-                    {expandedExercise === exercise.id ? '▼' : '▶'}
+                    {selectedMegaBilan === megaBilan.id ? 'Masquer' : 'Relever le Défi'}
                   </Button>
                 </div>
               </CardHeader>
 
-              {expandedExercise === exercise.id && (
-                <CardContent className="space-y-6">
-                  {/* Statement */}
-                  <div className="bg-slate-50 p-6 rounded-lg">
-                    <h4 className="font-semibold text-slate-800 mb-3">📋 Énoncé</h4>
-                    <p className="text-slate-700 whitespace-pre-line leading-relaxed">{exercise.statement}</p>
+              {selectedMegaBilan === megaBilan.id && (
+                <CardContent>
+                  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg mb-6">
+                    <h4 className="font-semibold text-indigo-800 mb-2">⚡ Conseils pour réussir :</h4>
+                    <ul className="text-sm text-indigo-700 space-y-1">
+                      <li>• Prenez le temps de bien lire chaque énoncé</li>
+                      <li>• Identifiez les domaines mathématiques impliqués</li>
+                      <li>• Faites des liens entre les différentes parties</li>
+                      <li>• N'hésitez pas à faire des schémas ou graphiques</li>
+                    </ul>
                   </div>
-
-                  {/* Solution toggle */}
-                  <div className="flex justify-center">
-                    <Button
-                      variant="outline"
-                      onClick={() => toggleSolution(exercise.id)}
-                      className="bg-gradient-to-r from-purple-50 to-purple-100 border-purple-200"
-                    >
-                      {showSolution === exercise.id ? '❌ Masquer la solution' : '✅ Voir la solution complète'}
-                    </Button>
-                  </div>
-
-                  {/* Solution */}
-                  {showSolution === exercise.id && (
-                    <div className="space-y-4">
-                      <div className="bg-green-50 border border-green-200 p-6 rounded-lg">
-                        <h4 className="font-semibold text-green-800 mb-3">✅ Solution détaillée</h4>
-                        <pre className="text-green-700 font-mono text-sm whitespace-pre-wrap leading-relaxed">
-                          {exercise.solution}
-                        </pre>
-                      </div>
-                      <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
-                        <h4 className="font-semibold text-blue-800 mb-2">📝 Commentaires</h4>
-                        <p className="text-blue-700">{exercise.explanation}</p>
-                      </div>
-                    </div>
-                  )}
+                  <ExerciseList exercises={megaBilan.exercises} color="from-indigo-600 to-purple-600" />
                 </CardContent>
               )}
             </Card>
           ))}
         </div>
 
-        {/* Call to action */}
-        <div className="text-center mt-12">
-          <Card className="border-0 shadow-lg bg-gradient-to-r from-purple-50 to-blue-50">
+        {/* Call to Action */}
+        <div className="mt-12 text-center">
+          <Card className="border-0 shadow-xl bg-gradient-to-r from-indigo-50 to-purple-50">
             <CardContent className="py-8">
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Prêt pour un défi plus grand ?</h3>
-              <p className="text-slate-600 mb-6">
-                Testez vos connaissances avec nos examens chronométrés interdisciplinaires
+              <Brain className="w-16 h-16 mx-auto text-indigo-600 mb-4" />
+              <h3 className="text-2xl font-bold text-slate-800 mb-4">Prêt pour un défi ultime ?</h3>
+              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+                Les méga bilans sont conçus pour tester votre maîtrise globale des mathématiques. 
+                Ils combinent plusieurs domaines et nécessitent une approche transversale.
               </p>
-              <Link to="/exam/mega">
-                <Button size="lg" className="bg-gradient-to-r from-purple-500 to-purple-600">
-                  <Brain className="w-5 h-5 mr-2" />
-                  Examen Méga Bilan
-                </Button>
-              </Link>
+              <div className="flex justify-center gap-4">
+                <Link to="/exam/mega">
+                  <Button size="lg" className="bg-gradient-to-r from-indigo-500 to-purple-500">
+                    <Zap className="w-5 h-5 mr-2" />
+                    Examen Méga Bilan
+                  </Button>
+                </Link>
+                <Link to="/algebra">
+                  <Button variant="outline" size="lg">
+                    Retour aux Chapitres
+                  </Button>
+                </Link>
+              </div>
             </CardContent>
           </Card>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

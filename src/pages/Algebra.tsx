@@ -14,6 +14,8 @@ const Algebra = () => {
       description: 'ℕ, ℤ, ℚ, ℝ, ℂ - Construction et propriétés des ensembles de nombres',
       exercises: 28,
       difficulty: 'Facile',
+      courseUrl: '/algebra/sets/course',
+      exerciseUrl: '/algebra/sets/exercise',
       content: [
         'Entiers naturels (ℕ) et relatifs (ℤ)',
         'Nombres rationnels (ℚ) et irrationnels',
@@ -27,6 +29,8 @@ const Algebra = () => {
       description: 'Identités remarquables, factorisations et polynômes du 2nd degré',
       exercises: 45,
       difficulty: 'Moyen',
+      courseUrl: '/algebra/calculus/course',
+      exerciseUrl: '/algebra/calculus/exercise',
       content: [
         'Identités remarquables : (a±b)² = a² ± 2ab + b²',
         'Différence de carrés : (a-b)(a+b) = a² - b²',
@@ -37,24 +41,12 @@ const Algebra = () => {
     },
     {
       id: 3,
-      title: 'Nombres complexes',
-      description: 'z = a + ib, module, argument et applications géométriques',
-      exercises: 32,
-      difficulty: 'Difficile',
-      content: [
-        'Forme algébrique : z = a + ib',
-        'Module : |z| = √(a² + b²)',
-        'Forme trigonométrique et exponentielle',
-        'Opérations sur les complexes',
-        'Applications géométriques'
-      ]
-    },
-    {
-      id: 4,
       title: 'Arithmétique',
       description: 'Division euclidienne, Bézout, congruences et théorème de Fermat',
       exercises: 26,
       difficulty: 'Difficile',
+      courseUrl: '/algebra/arithmetic/course',
+      exerciseUrl: '/algebra/arithmetic/exercise',
       content: [
         'Division euclidienne : a = bq + r',
         'Identité de Bézout : au + bv = gcd(a,b)',
@@ -64,11 +56,13 @@ const Algebra = () => {
       ]
     },
     {
-      id: 5,
+      id: 4,
       title: 'Suites numériques',
       description: 'Suites arithmétiques, géométriques et définies par récurrence',
       exercises: 38,
       difficulty: 'Moyen',
+      courseUrl: '/algebra/sequences/course',
+      exerciseUrl: '/algebra/sequences/exercise',
       content: [
         'Suites arithmétiques : uₙ = u₀ + nr',
         'Suites géométriques : uₙ = u₀ · qⁿ',
@@ -99,6 +93,11 @@ const Algebra = () => {
                 <h1 className="text-xl font-bold text-slate-900">🔢 Algèbre</h1>
               </div>
             </div>
+            <Link to="/algebra/bilan">
+              <Button className="bg-gradient-to-r from-purple-500 to-purple-600">
+                Bilan Algèbre
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -152,15 +151,18 @@ const Algebra = () => {
                   <span className="text-sm text-slate-500">{chapter.exercises} exercices</span>
                 </div>
                 <div className="flex gap-2">
-                  <Link to="/algebra/chapter" className="flex-1">
+                  <Link to={chapter.courseUrl} className="flex-1">
                     <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700">
-                      <PlayCircle className="w-4 h-4 mr-2" />
-                      Cours complet
+                      <BookOpen className="w-4 h-4 mr-2" />
+                      Cours
                     </Button>
                   </Link>
-                  <Button variant="outline" className="flex-1">
-                    Exercices rapides
-                  </Button>
+                  <Link to={chapter.exerciseUrl} className="flex-1">
+                    <Button variant="outline" className="w-full">
+                      <PlayCircle className="w-4 h-4 mr-2" />
+                      Exercices
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
