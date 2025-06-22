@@ -10,39 +10,51 @@ const AlgebraArithmeticCoursePage = () => {
     title: "Arithmétique",
     sections: [
       {
+        id: "division",
         title: "Division euclidienne",
-        content: `
-          La division euclidienne est fondamentale en arithmétique.
-          
-          **Théorème :** Pour tous entiers a et b (b > 0), il existe un unique couple (q, r) tel que :
-          a = bq + r avec 0 ≤ r < b
-          
-          - q est le quotient
-          - r est le reste
-          
-          **Application en informatique :** Les codes de contrôle utilisent le reste de divisions pour détecter les erreurs de transmission.
-        `,
+        content: [
+          "La division euclidienne est fondamentale en arithmétique.",
+          "Pour tous entiers a et b (b > 0), il existe un unique couple (q, r) tel que : a = bq + r avec 0 ≤ r < b",
+          "q est le quotient et r est le reste",
+          "Application en informatique : Les codes de contrôle utilisent le reste de divisions pour détecter les erreurs de transmission."
+        ],
         examples: [
-          "17 = 5 × 3 + 2 (quotient: 3, reste: 2)",
-          "25 = 7 × 3 + 4 (quotient: 3, reste: 4)"
+          {
+            title: "Calcul de reste pour code-barres",
+            description: "Un code-barres utilise la division euclidienne pour calculer sa clé de contrôle",
+            solution: "Pour le code 123456789, on calcule : 123456789 ÷ 7 = 17636684 reste 1\nLa clé de contrôle est donc 1",
+            domain: "informatique"
+          }
+        ],
+        keyFormulas: [
+          "a = bq + r avec 0 ≤ r < b",
+          "Exemple : 17 = 5 × 3 + 2"
         ]
       },
       {
+        id: "bezout",
         title: "PGCD et identité de Bézout",
-        content: `
-          **PGCD :** Le plus grand commun diviseur de deux entiers.
-          
-          **Identité de Bézout :** Si d = pgcd(a,b), alors il existe des entiers u et v tels que :
-          au + bv = d
-          
-          **Cryptographie :** Cette identité est utilisée dans l'algorithme RSA pour le chiffrement sécurisé des données.
-        `,
+        content: [
+          "Le PGCD (Plus Grand Commun Diviseur) de deux entiers est le plus grand entier qui divise les deux nombres.",
+          "L'identité de Bézout : Si d = pgcd(a,b), alors il existe des entiers u et v tels que : au + bv = d",
+          "Cette identité est utilisée dans l'algorithme RSA pour le chiffrement sécurisé des données.",
+          "L'algorithme d'Euclide permet de calculer efficacement le PGCD."
+        ],
         examples: [
-          "pgcd(12, 8) = 4",
-          "12 × (-1) + 8 × 2 = 4"
+          {
+            title: "Chiffrement RSA simplifié",
+            description: "En cryptographie, l'identité de Bézout permet de calculer l'inverse modulaire nécessaire au déchiffrement",
+            solution: "Pour pgcd(15, 8) = 1 :\n15 × (-1) + 8 × 2 = 1\nDonc l'inverse de 15 modulo 8 est -1 ≡ 7 [8]",
+            domain: "cryptographie"
+          }
+        ],
+        keyFormulas: [
+          "pgcd(a, b) avec algorithme d'Euclide",
+          "au + bv = pgcd(a, b)"
         ]
       }
-    ]
+    ],
+    color: "from-green-600 to-emerald-600"
   };
 
   return (

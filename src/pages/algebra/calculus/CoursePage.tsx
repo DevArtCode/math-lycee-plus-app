@@ -3,7 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import CourseContent from '@/components/CourseContent';
 
 const AlgebraCalculusCoursePage = () => {
@@ -11,46 +10,53 @@ const AlgebraCalculusCoursePage = () => {
     title: "Calcul algébrique",
     sections: [
       {
+        id: "identites",
         title: "Identités remarquables",
-        content: `
-          Les identités remarquables sont des formules fondamentales du calcul algébrique :
-          
-          **1. Carré d'une somme :**
-          (a + b)² = a² + 2ab + b²
-          
-          **2. Carré d'une différence :**
-          (a - b)² = a² - 2ab + b²
-          
-          **3. Différence de carrés :**
-          (a - b)(a + b) = a² - b²
-          
-          **Exemple concret :** En physique, pour calculer l'énergie cinétique d'un système à deux particules :
-          E = ½m(v₁ + v₂)² = ½m(v₁² + 2v₁v₂ + v₂²)
-        `,
+        content: [
+          "Les identités remarquables sont des formules fondamentales du calcul algébrique.",
+          "Carré d'une somme : (a + b)² = a² + 2ab + b²",
+          "Carré d'une différence : (a - b)² = a² - 2ab + b²",
+          "Différence de carrés : (a - b)(a + b) = a² - b²",
+          "Ces formules sont utilisées en physique pour simplifier les calculs d'énergie."
+        ],
         examples: [
-          "Développer (2x + 3)² = 4x² + 12x + 9",
-          "Factoriser x² - 9 = (x - 3)(x + 3)"
+          {
+            title: "Énergie cinétique d'un système",
+            description: "En physique, pour calculer l'énergie cinétique d'un système à deux particules",
+            solution: "E = ½m(v₁ + v₂)²\nEn développant : E = ½m(v₁² + 2v₁v₂ + v₂²)\nCela permet de séparer les énergies individuelles et l'énergie d'interaction",
+            domain: "physique"
+          }
+        ],
+        keyFormulas: [
+          "(a + b)² = a² + 2ab + b²",
+          "(a - b)² = a² - 2ab + b²",
+          "(a - b)(a + b) = a² - b²"
         ]
       },
       {
+        id: "factorisation",
         title: "Factorisation",
-        content: `
-          La factorisation consiste à écrire une expression sous forme de produit.
-          
-          **Méthodes principales :**
-          - Mise en évidence du facteur commun
-          - Utilisation des identités remarquables
-          - Factorisation des trinômes du second degré
-          
-          **Application économique :** Pour optimiser les coûts de production :
-          C(x) = 2x² + 8x + 8 = 2(x² + 4x + 4) = 2(x + 2)²
-        `,
+        content: [
+          "La factorisation consiste à écrire une expression sous forme de produit.",
+          "Méthodes principales : mise en évidence du facteur commun, utilisation des identités remarquables",
+          "Factorisation des trinômes du second degré : ax² + bx + c",
+          "Application économique : optimisation des coûts de production"
+        ],
         examples: [
-          "3x² + 6x = 3x(x + 2)",
-          "x² + 5x + 6 = (x + 2)(x + 3)"
+          {
+            title: "Optimisation des coûts",
+            description: "Une entreprise a des coûts de production qui suivent une fonction quadratique",
+            solution: "C(x) = 2x² + 8x + 8\nFactorisation : C(x) = 2(x² + 4x + 4) = 2(x + 2)²\nLe coût minimum est atteint pour x = -2 (non physique), le minimum réel dépend des contraintes",
+            domain: "économie"
+          }
+        ],
+        keyFormulas: [
+          "Facteur commun : ab + ac = a(b + c)",
+          "Trinôme : ax² + bx + c = a(x - x₁)(x - x₂)"
         ]
       }
-    ]
+    ],
+    color: "from-blue-600 to-cyan-600"
   };
 
   return (
