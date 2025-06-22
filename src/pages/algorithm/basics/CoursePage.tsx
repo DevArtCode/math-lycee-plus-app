@@ -6,80 +6,95 @@ import { Button } from '@/components/ui/button';
 import CourseContent from '@/components/CourseContent';
 
 const AlgorithmBasicsCoursePage = () => {
-  const courseData = {
-    title: "Algorithmes de Base",
-    description: "Structures fondamentales de la programmation",
-    sections: [
-      {
-        title: "Variables et Types",
-        content: [
-          {
-            type: "text" as const,
-            content: "En Python, les variables permettent de stocker des données de différents types."
-          },
-          {
-            type: "example" as const,
-            content: "# Types de base\nnombre = 42\ntexte = \"Hello\"\nboolean = True\nliste = [1, 2, 3]"
-          },
-          {
-            type: "text" as const,
-            content: "Python détermine automatiquement le type d'une variable (typage dynamique)."
-          }
-        ]
-      },
-      {
-        title: "Structures Conditionnelles",
-        content: [
-          {
-            type: "text" as const,
-            content: "Les structures conditionnelles permettent d'exécuter du code selon certaines conditions."
-          },
-          {
-            type: "example" as const,
-            content: "age = 18\nif age >= 18:\n    print(\"Majeur\")\nelse:\n    print(\"Mineur\")"
-          },
-          {
-            type: "formula" as const,
-            content: "Structure : if condition: ... elif autre_condition: ... else: ..."
-          }
-        ]
-      },
-      {
-        title: "Boucles",
-        content: [
-          {
-            type: "text" as const,
-            content: "Les boucles permettent de répéter des instructions."
-          },
-          {
-            type: "example" as const,
-            content: "# Boucle for\nfor i in range(5):\n    print(i)\n\n# Boucle while\ncompteur = 0\nwhile compteur < 5:\n    print(compteur)\n    compteur += 1"
-          },
-          {
-            type: "text" as const,
-            content: "La boucle for est utilisée quand on connaît le nombre d'itérations, while quand on ne le connaît pas."
-          }
-        ]
-      },
-      {
-        title: "Listes et Dictionnaires",
-        content: [
-          {
-            type: "text" as const,
-            content: "Les structures de données permettent d'organiser l'information."
-          },
-          {
-            type: "example" as const,
-            content: "# Liste\nfruits = [\"pomme\", \"banane\", \"orange\"]\nprint(fruits[0])  # pomme\n\n# Dictionnaire\npersonne = {\"nom\": \"Alice\", \"age\": 25}\nprint(personne[\"nom\"])  # Alice"
-          },
-          {
-            type: "formula" as const,
-            content: "Liste : accès par index [0, 1, 2...]\nDictionnaire : accès par clé {\"clé\": \"valeur\"}"
-          }
-        ]
-      }
-    ]
-  };
+  const sections = [
+    {
+      id: "variables",
+      title: "Variables et Types",
+      content: [
+        "En Python, les variables permettent de stocker des données de différents types.",
+        "Python détermine automatiquement le type d'une variable (typage dynamique).",
+        "Les types de base incluent : int, str, bool, list, dict"
+      ],
+      examples: [
+        {
+          title: "Types de base en Python",
+          description: "Déclaration et utilisation des différents types",
+          solution: "# Types de base\nnombre = 42\ntexte = \"Hello\"\nboolean = True\nliste = [1, 2, 3]\ndictionnaire = {\"nom\": \"Alice\", \"age\": 25}",
+          domain: "Programmation"
+        }
+      ],
+      keyFormulas: [
+        "type(variable) # Affiche le type d'une variable",
+        "isinstance(variable, type) # Vérifie le type"
+      ]
+    },
+    {
+      id: "conditionals",
+      title: "Structures Conditionnelles",
+      content: [
+        "Les structures conditionnelles permettent d'exécuter du code selon certaines conditions.",
+        "Python utilise if, elif, else pour les conditions.",
+        "L'indentation est cruciale en Python pour délimiter les blocs."
+      ],
+      examples: [
+        {
+          title: "Test de majorité",
+          description: "Déterminer si une personne est majeure ou mineure",
+          solution: "age = 18\nif age >= 18:\n    print(\"Majeur\")\nelse:\n    print(\"Mineur\")",
+          domain: "Logique conditionnelle"
+        }
+      ],
+      keyFormulas: [
+        "if condition:",
+        "elif autre_condition:",
+        "else:"
+      ]
+    },
+    {
+      id: "loops",
+      title: "Boucles", 
+      content: [
+        "Les boucles permettent de répéter des instructions.",
+        "La boucle for est utilisée quand on connaît le nombre d'itérations.",
+        "La boucle while est utilisée quand on ne connaît pas le nombre d'itérations."
+      ],
+      examples: [
+        {
+          title: "Boucles for et while",
+          description: "Exemples d'utilisation des deux types de boucles",
+          solution: "# Boucle for\nfor i in range(5):\n    print(i)\n\n# Boucle while\ncompteur = 0\nwhile compteur < 5:\n    print(compteur)\n    compteur += 1",
+          domain: "Itération"
+        }
+      ],
+      keyFormulas: [
+        "for element in sequence:",
+        "while condition:",
+        "range(start, stop, step)"
+      ]
+    },
+    {
+      id: "data-structures",
+      title: "Listes et Dictionnaires",
+      content: [
+        "Les structures de données permettent d'organiser l'information.",
+        "Les listes sont ordonnées et modifiables.",
+        "Les dictionnaires associent des clés à des valeurs."
+      ],
+      examples: [
+        {
+          title: "Manipulation de listes et dictionnaires",
+          description: "Accès et modification des données",
+          solution: "# Liste\nfruits = [\"pomme\", \"banane\", \"orange\"]\nprint(fruits[0])  # pomme\nfruits.append(\"kiwi\")\n\n# Dictionnaire\npersonne = {\"nom\": \"Alice\", \"age\": 25}\nprint(personne[\"nom\"])  # Alice\npersonne[\"ville\"] = \"Paris\"",
+          domain: "Structures de données"
+        }
+      ],
+      keyFormulas: [
+        "liste[index] # Accès par index",
+        "dictionnaire[\"clé\"] # Accès par clé",
+        "liste.append(element) # Ajouter à la liste"
+      ]
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
@@ -108,7 +123,11 @@ const AlgorithmBasicsCoursePage = () => {
       </header>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <CourseContent data={courseData} color="from-blue-600 to-blue-800" />
+        <CourseContent 
+          title="Algorithmes de Base"
+          sections={sections} 
+          color="from-blue-600 to-blue-800" 
+        />
       </div>
     </div>
   );
