@@ -5,10 +5,7 @@ import { ArrowLeft, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const ProbabilityConditionalCo
-
-
-Page = () => {
+const ProbabilityConditionalCoursePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50">
       <header className="bg-white/80 backdrop-blur-md border-b border-slate-200">
@@ -46,7 +43,7 @@ Page = () => {
                   P(B|A) = P(A ∩ B) / P(A)
                 </p>
                 <p className="text-sm text-slate-600 text-center mt-2">
-                  (avec P(A) > 0)
+                  (avec P(A) {'>'} 0)
                 </p>
               </div>
               <p className="text-slate-700 mt-4">

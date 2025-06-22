@@ -45,7 +45,7 @@ const LogicBasicsCoursePage = () => {
                 <p className="text-sm">
                   <strong>Exemples :</strong><br/>
                   • "2 est un nombre pair" (Vrai)<br/>
-                  • "π > 4" (Faux)<br/>
+                  • "π {'>'} 4" (Faux)<br/>
                   • "Quelle heure est-il ?" (N'est pas une proposition)
                 </p>
               </div>

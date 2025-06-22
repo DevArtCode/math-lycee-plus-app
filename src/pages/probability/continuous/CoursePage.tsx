@@ -54,7 +54,7 @@ const ProbabilityContinuousCoursePage = () => {
               <h3 className="text-lg font-semibold mb-2">Propriétés importantes</h3>
               <ul className="list-disc list-inside space-y-2 text-slate-700">
                 <li>P(X = a) = 0 pour toute valeur a</li>
-                <li>P(a ≤ X ≤ b) = P(a < X < b) = P(a < X ≤ b) = P(a ≤ X < b)</li>
+                <li>P(a ≤ X ≤ b) = P(a {'<'} X {'<'} b) = P(a {'<'} X ≤ b) = P(a ≤ X {'<'} b)</li>
               </ul>
             </div>
           </CardContent>
