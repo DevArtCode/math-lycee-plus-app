@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Calculator } from 'lucide-react';
@@ -50,6 +49,72 @@ const AlgebraCalculusExercisePage = () => {
       solution: "C(x) = x² + 10x + 25 = (x + 5)²\nLe coût minimum est 0 pour x = -5\nMais x ≥ 0 en pratique, donc le minimum sur [0, +∞[ est C(0) = 25 euros",
       explanation: "La factorisation révèle que la fonction a un minimum en x = -5, mais dans le contexte économique, x doit être positif.",
       category: "Applications"
+    },
+    {
+      id: "5",
+      title: "Développement de polynômes complexes",
+      difficulty: "Intermédiaire" as const,
+      points: 10,
+      statement: "Développer et réduire :\na) (2x - 3)(x² + x - 1)\nb) (x + 1)³\nc) (x - 2y + 3z)²",
+      hint: "Utilisez la distributivité et les identités remarquables",
+      solution: "a) (2x - 3)(x² + x - 1) = 2x³ + 2x² - 2x - 3x² - 3x + 3 = 2x³ - x² - 5x + 3\n\nb) (x + 1)³ = x³ + 3x² + 3x + 1\n\nc) (x - 2y + 3z)² = x² + 4y² + 9z² - 4xy + 6xz - 12yz",
+      explanation: "Pour a), distribuez chaque terme. Pour b), utilisez (a+b)³ = a³ + 3a²b + 3ab² + b³. Pour c), développez terme à terme.",
+      category: "Développement"
+    },
+    {
+      id: "6",
+      title: "Factorisation avancée",
+      difficulty: "Avancé" as const,
+      points: 15,
+      statement: "Factoriser complètement :\na) x⁴ - 1\nb) x³ - 8\nc) 2x³ + 16",
+      hint: "Utilisez les formules a³ ± b³ et les différences de carrés",
+      solution: "a) x⁴ - 1 = (x²)² - 1² = (x² - 1)(x² + 1) = (x - 1)(x + 1)(x² + 1)\n\nb) x³ - 8 = x³ - 2³ = (x - 2)(x² + 2x + 4)\n\nc) 2x³ + 16 = 2(x³ + 8) = 2(x³ + 2³) = 2(x + 2)(x² - 2x + 4)",
+      explanation: "Reconnaître les structures : différence de puissances paires, somme/différence de cubes.",
+      category: "Factorisation avancée"
+    },
+    {
+      id: "7",
+      title: "Équations du second degré par factorisation",
+      difficulty: "Intermédiaire" as const,
+      points: 12,
+      statement: "Résoudre par factorisation :\na) 2x² - 5x - 3 = 0\nb) x² - 6x + 9 = 0\nc) -x² + 4x - 4 = 0",
+      hint: "Cherchez les facteurs du produit ac qui s'additionnent pour donner b",
+      solution: "a) 2x² - 5x - 3 = (2x + 1)(x - 3) = 0\nDonc x = -1/2 ou x = 3\n\nb) x² - 6x + 9 = (x - 3)² = 0\nDonc x = 3 (racine double)\n\nc) -x² + 4x - 4 = -(x² - 4x + 4) = -(x - 2)² = 0\nDonc x = 2 (racine double)",
+      explanation: "Pour a), on cherche deux nombres qui multipliés donnent -6 et additionnés donnent -5.",
+      category: "Équations quadratiques"
+    },
+    {
+      id: "8",
+      title: "Fractions rationnelles",
+      difficulty: "Avancé" as const,
+      points: 18,
+      statement: "Simplifier :\na) (x² - 4)/(x² + 4x + 4)\nb) (x³ - 1)/(x² - 1)\nc) (2x² + x - 3)/(x² - x - 2)",
+      hint: "Factorisez numérateur et dénominateur",
+      solution: "a) (x² - 4)/(x² + 4x + 4) = (x - 2)(x + 2)/(x + 2)² = (x - 2)/(x + 2) pour x ≠ -2\n\nb) (x³ - 1)/(x² - 1) = (x - 1)(x² + x + 1)/(x - 1)(x + 1) = (x² + x + 1)/(x + 1) pour x ≠ 1\n\nc) (2x² + x - 3)/(x² - x - 2) = (2x + 3)(x - 1)/(x - 2)(x + 1) pour x ≠ 2, -1",
+      explanation: "Toujours factoriser avant de simplifier. Attention aux valeurs interdites.",
+      category: "Fractions rationnelles"
+    },
+    {
+      id: "9",
+      title: "Systèmes d'équations par substitution",
+      difficulty: "Intermédiaire" as const,
+      points: 14,
+      statement: "Résoudre les systèmes :\na) {x + 2y = 7, 3x - y = 1}\nb) {x² + y = 5, x - y = 1}",
+      hint: "Isolez une variable dans une équation puis substituez dans l'autre",
+      solution: "a) De la première : x = 7 - 2y\nSubstitution : 3(7 - 2y) - y = 1\n21 - 6y - y = 1 ⟹ 7y = 20 ⟹ y = 20/7\nDonc x = 7 - 2(20/7) = 9/7\nSolution : (9/7, 20/7)\n\nb) De la seconde : y = x - 1\nSubstitution : x² + (x - 1) = 5\nx² + x - 6 = 0 ⟹ (x + 3)(x - 2) = 0\nDonc x = -3 ou x = 2\nSolutions : (-3, -4) et (2, 1)",
+      explanation: "Méthode de substitution : isoler une variable simple puis remplacer.",
+      category: "Systèmes d'équations"
+    },
+    {
+      id: "10",
+      title: "Inéquations et tableaux de signes",
+      difficulty: "Avancé" as const,
+      points: 16,
+      statement: "Résoudre :\na) (x - 1)(x + 3) > 0\nb) (2x - 1)/(x + 2) ≤ 0\nc) x² - 4x + 3 < 0",
+      hint: "Utilisez un tableau de signes pour étudier le signe du produit/quotient",
+      solution: "a) Racines : x = 1 et x = -3\nTableau de signes : + sur ]-∞, -3[ ∪ ]1, +∞[\n\nb) Racines/interdites : x = 1/2 et x = -2\nTableau : ≤ 0 sur ]-2, 1/2]\n\nc) x² - 4x + 3 = (x - 1)(x - 3)\nTableau : < 0 sur ]1, 3[",
+      explanation: "Tableau de signes : étudier le signe de chaque facteur puis faire le produit.",
+      category: "Inéquations"
     }
   ];
 

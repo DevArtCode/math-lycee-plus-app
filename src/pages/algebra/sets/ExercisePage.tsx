@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Calculator, ArrowLeft, Target, CheckCircle, XCircle, BookOpen } from 'lucide-react';
@@ -64,6 +63,42 @@ const AlgebraSetsExercisePage = () => {
       statement: 'Une ville compte 50 000 habitants. Sa population croît de 2% par an.\na) Exprimer la population après n années\nb) Après combien d\'années la population aura-t-elle doublé ?\n(Utiliser ln(2) ≈ 0,693 et ln(1,02) ≈ 0,0198)',
       solution: 'a) Population après n années : P(n) = 50 000 × (1,02)ⁿ\n\nb) On cherche n tel que P(n) = 100 000\n50 000 × (1,02)ⁿ = 100 000\n(1,02)ⁿ = 2\nn × ln(1,02) = ln(2)\nn = ln(2)/ln(1,02) ≈ 0,693/0,0198 ≈ 35 années',
       explanation: 'Croissance exponentielle. La règle des 72 donne une approximation : 72/2 = 36 ans.'
+    },
+    {
+      id: 'ex7',
+      title: 'Intervalles et inégalités',
+      difficulty: 'Débutant' as const,
+      points: 6,
+      statement: 'Écrire sous forme d\'intervalles :\na) x ≤ 5\nb) -2 < x < 7\nc) x ≥ 3 ou x < -1',
+      solution: 'a) x ≤ 5 ⟺ x ∈ ]-∞, 5]\n\nb) -2 < x < 7 ⟺ x ∈ ]-2, 7[\n\nc) x ≥ 3 ou x < -1 ⟺ x ∈ ]-∞, -1[ ∪ [3, +∞[',
+      explanation: 'Attention aux crochets : [ ] pour inclus, ] [ pour exclus.'
+    },
+    {
+      id: 'ex8',
+      title: 'Opérations sur les ensembles',
+      difficulty: 'Intermédiaire' as const,
+      points: 10,
+      statement: 'Soit A = {1, 2, 3, 4} et B = {3, 4, 5, 6}.\nCalculer :\na) A ∪ B\nb) A ∩ B\nc) A \\ B\nd) A̅ (dans U = {1, 2, 3, 4, 5, 6, 7})',
+      solution: 'a) A ∪ B = {1, 2, 3, 4, 5, 6}\n\nb) A ∩ B = {3, 4}\n\nc) A \\ B = {1, 2}\n\nd) A̅ = U \\ A = {5, 6, 7}',
+      explanation: 'Union = tous les éléments, intersection = éléments communs, différence = dans A mais pas dans B.'
+    },
+    {
+      id: 'ex9',
+      title: 'Nombres premiers et divisibilité',
+      difficulty: 'Intermédiaire' as const,
+      points: 12,
+      statement: 'a) Décomposer 420 en produit de facteurs premiers\nb) Calculer PGCD(420, 315)\nc) En déduire PPCM(420, 315)',
+      solution: 'a) 420 = 4 × 105 = 4 × 3 × 35 = 4 × 3 × 5 × 7 = 2² × 3 × 5 × 7\n315 = 5 × 63 = 5 × 9 × 7 = 3² × 5 × 7\n\nb) PGCD(420, 315) = 3 × 5 × 7 = 105\n\nc) PPCM(420, 315) = (420 × 315)/PGCD = (420 × 315)/105 = 1260',
+      explanation: 'PGCD = produit des facteurs communs avec le plus petit exposant. PPCM × PGCD = produit des nombres.'
+    },
+    {
+      id: 'ex10',
+      title: 'Valeur absolue et distance',
+      difficulty: 'Avancé' as const,
+      points: 15,
+      statement: 'Résoudre les équations et inéquations :\na) |x - 3| = 5\nb) |2x + 1| ≤ 7\nc) |x - 1| + |x + 2| = 5',
+      solution: 'a) |x - 3| = 5 ⟺ x - 3 = 5 ou x - 3 = -5\n⟺ x = 8 ou x = -2\n\nb) |2x + 1| ≤ 7 ⟺ -7 ≤ 2x + 1 ≤ 7\n⟺ -8 ≤ 2x ≤ 6 ⟺ -4 ≤ x ≤ 3\n\nc) Étude de signes :\n• Si x ≤ -2 : -(x-1) - (x+2) = -2x - 1 = 5 ⟹ x = -3 ✓\n• Si -2 < x < 1 : -(x-1) + (x+2) = 3 = 5 impossible\n• Si x ≥ 1 : (x-1) + (x+2) = 2x + 1 = 5 ⟹ x = 2 ✓\nSolutions : x = -3 ou x = 2',
+      explanation: 'Pour |u| = a : u = a ou u = -a. Pour |u| ≤ a : -a ≤ u ≤ a. Pour les sommes, étudier les signes.'
     }
   ];
 

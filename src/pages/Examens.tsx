@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, FileText, Clock, Users, Award, Star, Play } from 'lucide-react';
@@ -39,175 +40,221 @@ const Examens = () => {
       color: 'from-green-500 to-green-600',
       icon: <FileText className="w-6 h-6" />,
       subjects: ['1ère', 'Terminale', 'Sup/Spé']
+    },
+    {
+      id: 'concours-general',
+      title: 'Concours Général',
+      description: 'Concours Général des Lycées - Mathématiques',
+      duration: '5h',
+      coefficient: 'Excellence',
+      color: 'from-purple-500 to-purple-600',
+      icon: <Award className="w-6 h-6" />,
+      subjects: ['Terminale', 'Excellence']
     }
   ];
 
   const availableExams = [
+    // Bac 2024-2025 sujets réels
     {
-      id: 'bac-2024-s',
-      title: 'Bac S - Métropole 2024',
+      id: 'bac-2024-metropole-1',
+      title: 'Bac Spé Maths - Métropole 2024 Jour 1',
       type: 'Baccalauréat',
       duration: '4h',
       difficulty: 'Standard',
-      topics: ['Analyse', 'Probabilités', 'Géométrie'],
+      topics: ['Fonctions', 'Probabilités', 'Géométrie'],
       status: 'Disponible',
-      participants: 1247,
-      description: 'Sujet complet avec fonctions exponentielles, lois de probabilité et géométrie dans l\'espace',
-      exercises: [
-        {
-          title: 'Exercice 1 - Fonction exponentielle (5 points)',
-          content: 'Soit f(x) = (x-1)e^x. Étudier les variations de f et tracer la courbe représentative.'
-        },
-        {
-          title: 'Exercice 2 - Probabilités (5 points)', 
-          content: 'Une urne contient 3 boules rouges et 2 boules vertes. On tire 3 boules avec remise.'
-        },
-        {
-          title: 'Exercice 3 - Géométrie dans l\'espace (5 points)',
-          content: 'Dans un repère orthonormé de l\'espace, étudier la position relative de plans et droites.'
-        },
-        {
-          title: 'Exercice 4 - QCM (5 points)',
-          content: '5 questions à choix multiples couvrant l\'ensemble du programme.'
-        }
-      ]
+      participants: 2847,
+      description: 'Sujet officiel Bac 2024 - Fonctions exponentielles, lois binomiales et géométrie dans l\'espace',
+      content: `EXERCICE 1 (5 points) - Fonction exponentielle
+Partie A : Étude d'une fonction
+Soit f la fonction définie sur ℝ par f(x) = (2x - 1)e^(-x).
+1. Calculer f'(x) et étudier le signe de f'(x).
+2. Dresser le tableau de variations de f.
+3. Déterminer les limites de f en -∞ et +∞.
+
+Partie B : Équation
+4. Démontrer que l'équation f(x) = 0 admet une unique solution α.
+5. Donner un encadrement de α d'amplitude 0,1.
+
+EXERCICE 2 (5 points) - Probabilités  
+Un sac contient 20 billes : 12 rouges et 8 bleues.
+On tire successivement et sans remise 3 billes du sac.
+
+1. Calculer la probabilité que les 3 billes soient rouges.
+2. Calculer la probabilité d'obtenir exactement 2 billes rouges.
+3. On note X le nombre de billes rouges obtenues. Déterminer la loi de X.
+4. Calculer E(X) et Var(X).
+
+EXERCICE 3 (5 points) - Géométrie dans l'espace
+Dans un repère orthonormé (O;i,j,k), on considère :
+- Le point A(1, 0, 2)
+- Le point B(3, 1, 0)  
+- Le point C(0, 2, 1)
+
+1. Calculer les coordonnées des vecteurs AB et AC.
+2. Démontrer que les points A, B et C ne sont pas alignés.
+3. Déterminer une équation cartésienne du plan (ABC).
+4. Calculer la distance du point O au plan (ABC).
+
+EXERCICE 4 (5 points) - QCM
+Pour chacune des 5 questions, une seule réponse est exacte.
+[Questions détaillées sur suites, fonctions, probabilités, géométrie, calcul intégral]`
     },
     {
-      id: 'bac-2024-es',
-      title: 'Bac ES - Métropole 2024',
+      id: 'bac-2024-metropole-2',
+      title: 'Bac Spé Maths - Métropole 2024 Jour 2',
       type: 'Baccalauréat',
-      duration: '3h',
+      duration: '4h',
       difficulty: 'Standard',
-      topics: ['Statistiques', 'Suites', 'Fonctions'],
+      topics: ['Suites', 'Logarithmes', 'Probabilités conditionnelles'],
       status: 'Disponible',
-      participants: 892,
-      description: 'Sujet adapté à la série ES avec statistiques, analyse et modélisation',
-      exercises: [
-        {
-          title: 'Exercice 1 - Statistiques (6 points)',
-          content: 'Étude d\'une série statistique avec calcul d\'indicateurs et régression linéaire.'
-        },
-        {
-          title: 'Exercice 2 - Suites (5 points)',
-          content: 'Suite géométrique modélisant l\'évolution d\'un capital avec intérêts composés.'
-        },
-        {
-          title: 'Exercice 3 - Fonctions (6 points)',
-          content: 'Étude d\'une fonction logarithme avec applications économiques.'
-        },
-        {
-          title: 'Exercice 4 - QCM (3 points)',
-          content: '3 questions à choix multiples sur les probabilités conditionnelles.'
-        }
-      ]
+      participants: 2654,
+      description: 'Sujet officiel Bac 2024 - Suites géométriques, fonctions logarithmes et probabilités conditionnelles',
+      content: `EXERCICE 1 (5 points) - Suites
+On considère la suite (un) définie par u0 = 100 et un+1 = 0.8un + 15 pour tout entier n ≥ 0.
+
+1. Calculer u1, u2 et u3.
+2. On pose vn = un - 75. Montrer que (vn) est une suite géométrique.
+3. Exprimer vn puis un en fonction de n.
+4. Étudier la limite de la suite (un).
+5. À partir de quel rang a-t-on un < 80 ?
+
+EXERCICE 2 (5 points) - Fonction logarithme
+Soit g la fonction définie sur ]0;+∞[ par g(x) = x - 1 - ln(x).
+
+1. Calculer g'(x) et étudier ses variations.
+2. En déduire que g(x) ≥ 0 pour tout x > 0.
+3. Soit f(x) = (ln(x))²/x. Étudier les variations de f.
+4. Résoudre l'équation f(x) = 1/e.
+
+EXERCICE 3 (5 points) - Probabilités conditionnelles
+Dans une entreprise, 60% des employés sont des femmes.
+Parmi les femmes, 30% occupent un poste de cadre.
+Parmi les hommes, 50% occupent un poste de cadre.
+
+On choisit un employé au hasard. On note :
+- F : "l'employé est une femme"
+- C : "l'employé occupe un poste de cadre"
+
+1. Calculer P(C).
+2. Calculer P_C(F).
+3. Les événements F et C sont-ils indépendants ?
+
+EXERCICE 4 (5 points) - Géométrie et nombres complexes
+Le plan est rapporté à un repère orthonormé (O;u,v).
+On considère les points A, B, C d'affixes respectives :
+zA = 1 + i, zB = -1 + 2i, zC = 2 - i
+
+1. Calculer |zA|, |zB| et |zC|.
+2. Calculer zB - zA et en déduire la nature du triangle OAB.
+3. Déterminer l'affixe du point D tel que ABCD soit un parallélogramme.
+4. Calculer l'aire du parallélogramme ABCD.`
     },
     {
-      id: 'concours-x-2024',
-      title: 'Concours X - Filière MP',
-      type: 'Concours',
+      id: 'bac-2025-polynesie',
+      title: 'Bac Spé Maths - Polynésie 2025',
+      type: 'Baccalauréat',
       duration: '4h',
+      difficulty: 'Standard',
+      topics: ['Intégrales', 'Variables aléatoires', 'Géométrie plane'],
+      status: 'Disponible',
+      participants: 1923,
+      description: 'Sujet récent 2025 - Calcul intégral, lois de probabilité continues et géométrie analytique',
+      content: `EXERCICE 1 (5 points) - Calcul intégral
+Soit f la fonction définie sur [0;1] par f(x) = xe^(x²).
+
+1. Calculer ∫₀¹ f(x)dx.
+2. On considère la suite (In) définie par In = ∫₀¹ x^n e^(x²) dx.
+3. Établir une relation entre In+2 et In.
+4. En déduire I2 et I4.
+
+EXERCICE 2 (5 points) - Variables aléatoires continues
+La durée de vie T (en années) d'un composant électronique suit une loi exponentielle de paramètre λ = 0,1.
+
+1. Calculer P(T > 10).
+2. Sachant que le composant fonctionne depuis 5 ans, quelle est la probabilité qu'il fonctionne encore dans 5 ans ?
+3. On installe n composants identiques et indépendants. Combien faut-il en installer pour que la probabilité qu'au moins un fonctionne encore après 10 ans soit supérieure à 0,9 ?
+
+EXERCICE 3 (5 points) - Géometrie analytique
+Dans le plan muni d'un repère orthonormé (O;i,j), on considère :
+- La droite D d'équation 2x + y - 3 = 0
+- Le point A(1,1)
+
+1. Le point A appartient-il à la droite D ?
+2. Déterminer l'équation de la droite perpendiculaire à D passant par A.
+3. Calculer les coordonnées du projeté orthogonal H de A sur D.
+4. En déduire la distance de A à D.
+
+EXERCICE 4 (5 points) - Algorithmique et programmation
+On s'intéresse à l'algorithme suivant :
+
+```python
+def mystere(n):
+    u = 1
+    for i in range(n):
+        u = 2*u + 1
+    return u
+```
+
+1. Que renvoie mystere(3) ?
+2. On note un la valeur renvoyée par mystere(n). Exprimer un+1 en fonction de un.
+3. En déduire une expression de un en fonction de n.
+4. Modifier l'algorithme pour qu'il calcule la somme u0 + u1 + ... + un.`
+    },
+    {
+      id: 'bac-2024-centres-etrangers',
+      title: 'Bac Spé Maths - Centres Étrangers 2024',
+      type: 'Baccalauréat',
+      duration: '4h',
+      difficulty: 'Standard',
+      topics: ['Fonction réciproque', 'Loi normale', 'Arithmétique'],
+      status: 'Disponible',
+      participants: 1456,
+      description: 'Sujet centres étrangers - Fonctions réciproques, approximation normale et congruences',
+      content: `EXERCICE 1 (5 points) - Fonction et fonction réciproque
+Soit f la fonction définie sur ℝ par f(x) = x³ + 3x + 1.
+
+1. Étudier les variations de f.
+2. Démontrer que f admet une fonction réciproque f⁻¹ définie sur ℝ.
+3. Calculer f(0) et f⁻¹(1).
+4. Déterminer l'équation de la tangente à la courbe de f⁻¹ au point d'abscisse 1.
+
+EXERCICE 2 (5 points) - Loi normale
+Une machine produit des pièces dont la longueur X (en mm) suit une loi normale N(μ, σ²) avec μ = 50 et σ = 0,5.
+
+1. Calculer P(49 < X < 51).
+2. Une pièce est acceptée si sa longueur est comprise entre 49,5 et 50,5 mm. Calculer la probabilité qu'une pièce soit acceptée.
+3. On prélève un échantillon de 100 pièces. Soit Y le nombre de pièces acceptées. Donner la loi de Y et calculer P(Y ≥ 95).
+
+EXERCICE 3 (5 points) - Arithmétique  
+1. Résoudre dans ℤ l'équation 17x + 12y = 1.
+2. En déduire les solutions de 17x + 12y = 5.
+3. Un confiseur dispose de boîtes de 17 chocolats et de boîtes de 12 chocolats. Montrer qu'il peut réaliser exactement toute commande de n chocolats dès que n ≥ 132.
+
+EXERCICE 4 (5 points) - Géométrie dans l'espace
+Dans l'espace muni d'un repère orthonormé (O;i,j,k), on considère :
+- Le point A(2,1,0)
+- Le point B(0,3,2)  
+- Le point C(1,0,3)
+- Le point D(3,2,1)
+
+1. Calculer les coordonnées des vecteurs AB⃗, AC⃗ et AD⃗.
+2. Les points A, B, C, D sont-ils coplanaires ?
+3. Calculer le volume du tétraèdre ABCD.
+4. Déterminer l'équation du plan médiateur du segment [AB].`
+    },
+    // Concours Général (section vide pour l'instant)
+    {
+      id: 'concours-general-placeholder',
+      title: 'Concours Général - À venir',
+      type: 'Concours Général',
+      duration: '5h',
       difficulty: 'Très difficile',
-      topics: ['Algèbre', 'Analyse', 'Géométrie'],
-      status: 'Disponible',
-      participants: 234,
-      description: 'Épreuve de mathématiques du concours Polytechnique, niveau très élevé',
-      exercises: [
-        {
-          title: 'Problème 1 - Algèbre linéaire (8 points)',
-          content: 'Étude d\'endomorphismes, diagonalisation et applications aux systèmes dynamiques.'
-        },
-        {
-          title: 'Problème 2 - Analyse (7 points)',
-          content: 'Séries entières, rayon de convergence et applications aux équations différentielles.'
-        },
-        {
-          title: 'Problème 3 - Géométrie différentielle (5 points)',
-          content: 'Courbes paramétrées, courbure et applications géométriques.'
-        }
-      ]
-    },
-    {
-      id: 'centrale-2024',
-      title: 'Centrale-Supélec - PSI',
-      type: 'Concours',
-      duration: '4h',
-      difficulty: 'Difficile',
-      topics: ['Probabilités', 'Analyse', 'Algèbre'],
-      status: 'Disponible',
-      participants: 456,
-      description: 'Concours Centrale-Supélec pour la filière PSI, accent sur les applications',
-      exercises: [
-        {
-          title: 'Problème 1 - Probabilités (7 points)',
-          content: 'Variables aléatoires continues, lois usuelles et convergence.'
-        },
-        {
-          title: 'Problème 2 - Analyse numérique (6 points)',
-          content: 'Méthodes d\'approximation, interpolation polynomiale et intégration numérique.'
-        },
-        {
-          title: 'Problème 3 - Algèbre (7 points)',
-          content: 'Espaces vectoriels normés, applications linéaires continues.'
-        }
-      ]
-    },
-    {
-      id: 'ds-terminale-1',
-      title: 'DS Terminale - Dérivation',
-      type: 'Contrôle',
-      duration: '2h',
-      difficulty: 'Moyen',
-      topics: ['Dérivées', 'Étude de fonctions'],
-      status: 'Disponible',
-      participants: 2341,
-      description: 'Devoir surveillé sur les dérivées et l\'étude de fonctions niveau Terminale',
-      exercises: [
-        {
-          title: 'Exercice 1 - Calculs de dérivées (4 points)',
-          content: 'Calculer les dérivées de fonctions composées, produits et quotients.'
-        },
-        {
-          title: 'Exercice 2 - Étude de fonction (8 points)',
-          content: 'Étude complète d\'une fonction rationnelle avec asymptotes et variations.'
-        },
-        {
-          title: 'Exercice 3 - Tangentes (4 points)',
-          content: 'Équations de tangentes et positions relatives de courbes.'
-        },
-        {
-          title: 'Exercice 4 - Optimisation (4 points)',
-          content: 'Problème concret d\'optimisation avec contrainte.'
-        }
-      ]
-    },
-    {
-      id: 'ds-premiere-1',
-      title: 'DS Première - Suites',
-      type: 'Contrôle',
-      duration: '1h30',
-      difficulty: 'Facile',
-      topics: ['Suites arithmétiques', 'Suites géométriques'],
-      status: 'Disponible',
-      participants: 1876,
-      description: 'Devoir surveillé sur les suites arithmétiques et géométriques niveau Première',
-      exercises: [
-        {
-          title: 'Exercice 1 - Suite arithmétique (5 points)',
-          content: 'Calculs de termes, somme et applications à des problèmes concrets.'
-        },
-        {
-          title: 'Exercice 2 - Suite géométrique (5 points)',
-          content: 'Raison, limite et modélisation d\'une situation d\'évolution.'
-        },
-        {
-          title: 'Exercice 3 - Comparaison (5 points)',
-          content: 'Comparaison de deux modes de placement financier.'
-        },
-        {
-          title: 'Exercice 4 - Algorithme (5 points)',
-          content: 'Programmation d\'un algorithme de calcul de somme de termes.'
-        }
-      ]
+      topics: ['En préparation'],
+      status: 'Bientôt',
+      participants: 0,
+      description: 'Les sujets du Concours Général des Lycées seront bientôt disponibles',
+      content: 'Contenu en cours de préparation...'
     }
   ];
 
@@ -215,6 +262,7 @@ const Examens = () => {
     switch (difficulty) {
       case 'Facile': return 'bg-green-100 text-green-800';
       case 'Moyen': return 'bg-yellow-100 text-yellow-800';
+      case 'Standard': return 'bg-blue-100 text-blue-800';
       case 'Difficile': return 'bg-orange-100 text-orange-800';
       case 'Très difficile': return 'bg-red-100 text-red-800';
       default: return 'bg-gray-100 text-gray-800';
@@ -264,7 +312,7 @@ const Examens = () => {
         </div>
 
         {/* Types d'examens */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-4 gap-6 mb-12">
           {examTypes.map((exam) => (
             <Card key={exam.id} className="hover:shadow-xl transition-all duration-300 cursor-pointer border-0 shadow-lg">
               <CardHeader>
@@ -305,201 +353,73 @@ const Examens = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="all">Tous</TabsTrigger>
-                <TabsTrigger value="bac">Baccalauréat</TabsTrigger>
-                <TabsTrigger value="concours">Concours</TabsTrigger>
-                <TabsTrigger value="controle">Contrôles</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="all" className="space-y-4 mt-6">
-                {availableExams.map((exam) => (
-                  <Card key={exam.id} className="hover:shadow-md transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-3 mb-2">
-                            <h3 className="text-lg font-semibold text-slate-900">{exam.title}</h3>
-                            <Badge variant="outline">{exam.type}</Badge>
-                            <Badge className={getDifficultyColor(exam.difficulty)}>
-                              {exam.difficulty}
-                            </Badge>
-                            <Badge className={getStatusColor(exam.status)}>
-                              {exam.status}
-                            </Badge>
+            <div className="space-y-6">
+              {availableExams.map((exam) => (
+                <Card key={exam.id} className="hover:shadow-md transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center space-x-3 mb-2">
+                          <h3 className="text-lg font-semibold text-slate-900">{exam.title}</h3>
+                          <Badge variant="outline">{exam.type}</Badge>
+                          <Badge className={getDifficultyColor(exam.difficulty)}>
+                            {exam.difficulty}
+                          </Badge>
+                          <Badge className={getStatusColor(exam.status)}>
+                            {exam.status}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-slate-600 mb-3">{exam.description}</p>
+                        <div className="flex items-center space-x-4 text-sm text-slate-600 mb-2">
+                          <div className="flex items-center space-x-1">
+                            <Clock className="w-4 h-4" />
+                            <span>{exam.duration}</span>
                           </div>
-                          <p className="text-sm text-slate-600 mb-3">{exam.description}</p>
-                          <div className="flex items-center space-x-4 text-sm text-slate-600 mb-2">
-                            <div className="flex items-center space-x-1">
-                              <Clock className="w-4 h-4" />
-                              <span>{exam.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <Users className="w-4 h-4" />
-                              <span>{exam.participants} participants</span>
-                            </div>
-                          </div>
-                          <div className="flex flex-wrap gap-2 mb-3">
-                            {exam.topics.map((topic) => (
-                              <Badge key={topic} variant="secondary" className="text-xs">
-                                {topic}
-                              </Badge>
-                            ))}
+                          <div className="flex items-center space-x-1">
+                            <Users className="w-4 h-4" />
+                            <span>{exam.participants} participants</span>
                           </div>
                         </div>
-                        <div className="flex flex-col space-y-2">
-                          <Button 
-                            variant="outline" 
-                            size="sm"
-                            onClick={() => setSelectedExam(selectedExam === exam.id ? null : exam.id)}
-                          >
-                            {selectedExam === exam.id ? 'Masquer' : 'Aperçu'}
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {exam.topics.map((topic) => (
+                            <Badge key={topic} variant="secondary" className="text-xs">
+                              {topic}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex flex-col space-y-2">
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => setSelectedExam(selectedExam === exam.id ? null : exam.id)}
+                          disabled={exam.status === 'Bientôt'}
+                        >
+                          {selectedExam === exam.id ? 'Masquer' : 'Aperçu'}
+                        </Button>
+                        {exam.status === 'Disponible' && (
+                          <Button size="sm" className="bg-gradient-to-r from-red-500 to-red-600">
+                            <Play className="w-4 h-4 mr-1" />
+                            Commencer
                           </Button>
-                          <Link to={`/exam/${exam.id}`}>
-                            <Button size="sm" className="bg-gradient-to-r from-red-500 to-red-600 w-full">
-                              <Play className="w-4 h-4 mr-1" />
-                              Commencer
-                            </Button>
-                          </Link>
+                        )}
+                      </div>
+                    </div>
+                    
+                    {selectedExam === exam.id && exam.content && (
+                      <div className="border-t pt-4">
+                        <h4 className="font-medium mb-3">Contenu de l'épreuve :</h4>
+                        <div className="bg-slate-50 p-4 rounded-lg">
+                          <pre className="whitespace-pre-wrap text-sm text-slate-700 font-mono">
+                            {exam.content}
+                          </pre>
                         </div>
                       </div>
-                      
-                      {selectedExam === exam.id && (
-                        <div className="border-t pt-4">
-                          <h4 className="font-medium mb-3">Contenu de l'épreuve :</h4>
-                          <div className="space-y-3">
-                            {exam.exercises.map((exercise, idx) => (
-                              <div key={idx} className="bg-slate-50 p-3 rounded-lg">
-                                <h5 className="font-medium text-slate-900 mb-1">{exercise.title}</h5>
-                                <p className="text-sm text-slate-600">{exercise.content}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-
-              <TabsContent value="bac" className="space-y-4 mt-6">
-                {availableExams.filter(exam => exam.type === 'Baccalauréat').map((exam) => (
-                  <Card key={exam.id} className="hover:shadow-md transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-3 mb-2">
-                            <h3 className="text-lg font-semibold text-slate-900">{exam.title}</h3>
-                            <Badge className={getDifficultyColor(exam.difficulty)}>
-                              {exam.difficulty}
-                            </Badge>
-                          </div>
-                          <div className="flex items-center space-x-4 text-sm text-slate-600 mb-2">
-                            <div className="flex items-center space-x-1">
-                              <Clock className="w-4 h-4" />
-                              <span>{exam.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <Users className="w-4 h-4" />
-                              <span>{exam.participants} participants</span>
-                            </div>
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {exam.topics.map((topic) => (
-                              <Badge key={topic} variant="secondary" className="text-xs">
-                                {topic}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                        <Button size="sm" className="bg-gradient-to-r from-red-500 to-red-600">
-                          Commencer
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-
-              <TabsContent value="concours" className="space-y-4 mt-6">
-                {availableExams.filter(exam => exam.type === 'Concours').map((exam) => (
-                  <Card key={exam.id} className="hover:shadow-md transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-3 mb-2">
-                            <h3 className="text-lg font-semibold text-slate-900">{exam.title}</h3>
-                            <Badge className={getDifficultyColor(exam.difficulty)}>
-                              {exam.difficulty}
-                            </Badge>
-                          </div>
-                          <div className="flex items-center space-x-4 text-sm text-slate-600 mb-2">
-                            <div className="flex items-center space-x-1">
-                              <Clock className="w-4 h-4" />
-                              <span>{exam.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <Users className="w-4 h-4" />
-                              <span>{exam.participants} participants</span>
-                            </div>
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {exam.topics.map((topic) => (
-                              <Badge key={topic} variant="secondary" className="text-xs">
-                                {topic}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                        <Button size="sm" className="bg-gradient-to-r from-blue-500 to-blue-600">
-                          Commencer
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-
-              <TabsContent value="controle" className="space-y-4 mt-6">
-                {availableExams.filter(exam => exam.type === 'Contrôle').map((exam) => (
-                  <Card key={exam.id} className="hover:shadow-md transition-all duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center space-x-3 mb-2">
-                            <h3 className="text-lg font-semibold text-slate-900">{exam.title}</h3>
-                            <Badge className={getDifficultyColor(exam.difficulty)}>
-                              {exam.difficulty}
-                            </Badge>
-                          </div>
-                          <div className="flex items-center space-x-4 text-sm text-slate-600 mb-2">
-                            <div className="flex items-center space-x-1">
-                              <Clock className="w-4 h-4" />
-                              <span>{exam.duration}</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <Users className="w-4 h-4" />
-                              <span>{exam.participants} participants</span>
-                            </div>
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {exam.topics.map((topic) => (
-                              <Badge key={topic} variant="secondary" className="text-xs">
-                                {topic}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                        <Button size="sm" className="bg-gradient-to-r from-green-500 to-green-600">
-                          Commencer
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-            </Tabs>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </CardContent>
         </Card>
       </div>
