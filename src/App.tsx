@@ -1,8 +1,9 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Algebra from "./pages/Algebra";
 import Analysis from "./pages/Analysis";
@@ -73,6 +74,16 @@ import MegaBilanPage from "./pages/MegaBilanPage";
 import ExamPage from "./pages/ExamPage";
 import NotFound from "./pages/NotFound";
 
+// Analysis chapter pages
+import AnalysisFunctionsCoursePage from "./pages/analysis/functions/CoursePage";
+import AnalysisFunctionsExercisePage from "./pages/analysis/functions/ExercisePage";
+import AnalysisDerivativesCoursePage from "./pages/analysis/derivatives/CoursePage";
+import AnalysisDerivativesExercisePage from "./pages/analysis/derivatives/ExercisePage";
+
+// Evaluation pages
+import Bilan from "./pages/Bilan";
+import Examens from "./pages/Examens";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -80,7 +91,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<Index />} />
           
@@ -144,6 +155,17 @@ const App = () => (
           <Route path="/algorithm/simulation/course" element={<AlgorithmSimulationCoursePage />} />
           <Route path="/algorithm/simulation/exercise" element={<AlgorithmSimulationExercisePage />} />
 
+          {/* Analysis routes */}
+          <Route path="/analysis" element={<Analysis />} />
+          <Route path="/analysis/functions/course" element={<AnalysisFunctionsCoursePage />} />
+          <Route path="/analysis/functions/exercise" element={<AnalysisFunctionsExercisePage />} />
+          <Route path="/analysis/derivatives/course" element={<AnalysisDerivativesCoursePage />} />
+          <Route path="/analysis/derivatives/exercise" element={<AnalysisDerivativesExercisePage />} />
+
+          {/* Evaluation routes */}
+          <Route path="/bilan" element={<Bilan />} />
+          <Route path="/examens" element={<Examens />} />
+
           {/* Bilan and exam routes */}
           <Route path="/algebra/bilan" element={<AlgebraBilanPage />} />
           <Route path="/geometry/bilan" element={<GeometryBilanPage />} />
@@ -156,7 +178,7 @@ const App = () => (
           {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </TooltipProvider>
   </QueryClientProvider>
 );
