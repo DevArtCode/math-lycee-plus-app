@@ -12,7 +12,7 @@ const Analysis = () => {
       id: 1,
       title: 'Fonctions et limites',
       description: 'Étude des fonctions, continuité et calcul de limites',
-      exercises: 45,
+      exercises: 10,
       difficulty: 'Moyen',
       content: [
         'Domaine de définition et ensemble image',
@@ -21,13 +21,14 @@ const Analysis = () => {
         'Théorème des valeurs intermédiaires',
         'Asymptotes verticales et horizontales'
       ],
-      path: '/analysis/functions'
+      coursePath: '/analysis/functions/course',
+      exercisePath: '/analysis/functions/exercise'
     },
     {
       id: 2,
       title: 'Dérivation',
       description: 'Calcul différentiel et applications géométriques',
-      exercises: 52,
+      exercises: 10,
       difficulty: 'Moyen',
       content: [
         'Nombre dérivé et fonction dérivée',
@@ -36,13 +37,14 @@ const Analysis = () => {
         'Tangente à une courbe',
         'Variations et extremums'
       ],
-      path: '/analysis/derivatives'
+      coursePath: '/analysis/derivatives/course',
+      exercisePath: '/analysis/derivatives/exercise'
     },
     {
       id: 3,
       title: 'Primitives et intégrales',
       description: 'Calcul intégral et applications',
-      exercises: 38,
+      exercises: 10,
       difficulty: 'Difficile',
       content: [
         'Primitives usuelles',
@@ -51,13 +53,14 @@ const Analysis = () => {
         'Calcul d\'aires sous une courbe',
         'Intégration par parties (introduction)'
       ],
-      path: '/analysis/integrals'
+      coursePath: '/analysis/integrals/course',
+      exercisePath: '/analysis/integrals/exercise'
     },
     {
       id: 4,
       title: 'Suites numériques',
       description: 'Convergence et comportement asymptotique',
-      exercises: 41,
+      exercises: 10,
       difficulty: 'Difficile',
       content: [
         'Suites arithmétiques et géométriques',
@@ -66,7 +69,8 @@ const Analysis = () => {
         'Suites monotones et majorées',
         'Suites récurrentes'
       ],
-      path: '/analysis/sequences'
+      coursePath: '/analysis/sequences/course',
+      exercisePath: '/analysis/sequences/exercise'
     }
   ];
 
@@ -143,13 +147,17 @@ const Analysis = () => {
                   <span className="text-sm text-slate-500">{chapter.exercises} exercices</span>
                 </div>
                 <div className="flex gap-2">
-                  <Button className="flex-1 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700">
-                    <PlayCircle className="w-4 h-4 mr-2" />
-                    Commencer
-                  </Button>
-                  <Button variant="outline" className="flex-1">
-                    Voir le cours
-                  </Button>
+                  <Link to={chapter.exercisePath} className="flex-1">
+                    <Button className="w-full bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700">
+                      <PlayCircle className="w-4 h-4 mr-2" />
+                      Commencer
+                    </Button>
+                  </Link>
+                  <Link to={chapter.coursePath} className="flex-1">
+                    <Button variant="outline" className="w-full">
+                      Voir le cours
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>

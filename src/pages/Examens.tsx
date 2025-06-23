@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, FileText, Clock, Users, Award, Star } from 'lucide-react';
+import { ArrowLeft, FileText, Clock, Users, Award, Star, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -52,7 +51,26 @@ const Examens = () => {
       difficulty: 'Standard',
       topics: ['Analyse', 'Probabilités', 'Géométrie'],
       status: 'Disponible',
-      participants: 1247
+      participants: 1247,
+      description: 'Sujet complet avec fonctions exponentielles, lois de probabilité et géométrie dans l\'espace',
+      exercises: [
+        {
+          title: 'Exercice 1 - Fonction exponentielle (5 points)',
+          content: 'Soit f(x) = (x-1)e^x. Étudier les variations de f et tracer la courbe représentative.'
+        },
+        {
+          title: 'Exercice 2 - Probabilités (5 points)', 
+          content: 'Une urne contient 3 boules rouges et 2 boules vertes. On tire 3 boules avec remise.'
+        },
+        {
+          title: 'Exercice 3 - Géométrie dans l\'espace (5 points)',
+          content: 'Dans un repère orthonormé de l\'espace, étudier la position relative de plans et droites.'
+        },
+        {
+          title: 'Exercice 4 - QCM (5 points)',
+          content: '5 questions à choix multiples couvrant l\'ensemble du programme.'
+        }
+      ]
     },
     {
       id: 'bac-2024-es',
@@ -62,7 +80,26 @@ const Examens = () => {
       difficulty: 'Standard',
       topics: ['Statistiques', 'Suites', 'Fonctions'],
       status: 'Disponible',
-      participants: 892
+      participants: 892,
+      description: 'Sujet adapté à la série ES avec statistiques, analyse et modélisation',
+      exercises: [
+        {
+          title: 'Exercice 1 - Statistiques (6 points)',
+          content: 'Étude d\'une série statistique avec calcul d\'indicateurs et régression linéaire.'
+        },
+        {
+          title: 'Exercice 2 - Suites (5 points)',
+          content: 'Suite géométrique modélisant l\'évolution d\'un capital avec intérêts composés.'
+        },
+        {
+          title: 'Exercice 3 - Fonctions (6 points)',
+          content: 'Étude d\'une fonction logarithme avec applications économiques.'
+        },
+        {
+          title: 'Exercice 4 - QCM (3 points)',
+          content: '3 questions à choix multiples sur les probabilités conditionnelles.'
+        }
+      ]
     },
     {
       id: 'concours-x-2024',
@@ -72,7 +109,22 @@ const Examens = () => {
       difficulty: 'Très difficile',
       topics: ['Algèbre', 'Analyse', 'Géométrie'],
       status: 'Disponible',
-      participants: 234
+      participants: 234,
+      description: 'Épreuve de mathématiques du concours Polytechnique, niveau très élevé',
+      exercises: [
+        {
+          title: 'Problème 1 - Algèbre linéaire (8 points)',
+          content: 'Étude d\'endomorphismes, diagonalisation et applications aux systèmes dynamiques.'
+        },
+        {
+          title: 'Problème 2 - Analyse (7 points)',
+          content: 'Séries entières, rayon de convergence et applications aux équations différentielles.'
+        },
+        {
+          title: 'Problème 3 - Géométrie différentielle (5 points)',
+          content: 'Courbes paramétrées, courbure et applications géométriques.'
+        }
+      ]
     },
     {
       id: 'centrale-2024',
@@ -82,7 +134,22 @@ const Examens = () => {
       difficulty: 'Difficile',
       topics: ['Probabilités', 'Analyse', 'Algèbre'],
       status: 'Disponible',
-      participants: 456
+      participants: 456,
+      description: 'Concours Centrale-Supélec pour la filière PSI, accent sur les applications',
+      exercises: [
+        {
+          title: 'Problème 1 - Probabilités (7 points)',
+          content: 'Variables aléatoires continues, lois usuelles et convergence.'
+        },
+        {
+          title: 'Problème 2 - Analyse numérique (6 points)',
+          content: 'Méthodes d\'approximation, interpolation polynomiale et intégration numérique.'
+        },
+        {
+          title: 'Problème 3 - Algèbre (7 points)',
+          content: 'Espaces vectoriels normés, applications linéaires continues.'
+        }
+      ]
     },
     {
       id: 'ds-terminale-1',
@@ -92,7 +159,26 @@ const Examens = () => {
       difficulty: 'Moyen',
       topics: ['Dérivées', 'Étude de fonctions'],
       status: 'Disponible',
-      participants: 2341
+      participants: 2341,
+      description: 'Devoir surveillé sur les dérivées et l\'étude de fonctions niveau Terminale',
+      exercises: [
+        {
+          title: 'Exercice 1 - Calculs de dérivées (4 points)',
+          content: 'Calculer les dérivées de fonctions composées, produits et quotients.'
+        },
+        {
+          title: 'Exercice 2 - Étude de fonction (8 points)',
+          content: 'Étude complète d\'une fonction rationnelle avec asymptotes et variations.'
+        },
+        {
+          title: 'Exercice 3 - Tangentes (4 points)',
+          content: 'Équations de tangentes et positions relatives de courbes.'
+        },
+        {
+          title: 'Exercice 4 - Optimisation (4 points)',
+          content: 'Problème concret d\'optimisation avec contrainte.'
+        }
+      ]
     },
     {
       id: 'ds-premiere-1',
@@ -102,7 +188,26 @@ const Examens = () => {
       difficulty: 'Facile',
       topics: ['Suites arithmétiques', 'Suites géométriques'],
       status: 'Disponible',
-      participants: 1876
+      participants: 1876,
+      description: 'Devoir surveillé sur les suites arithmétiques et géométriques niveau Première',
+      exercises: [
+        {
+          title: 'Exercice 1 - Suite arithmétique (5 points)',
+          content: 'Calculs de termes, somme et applications à des problèmes concrets.'
+        },
+        {
+          title: 'Exercice 2 - Suite géométrique (5 points)',
+          content: 'Raison, limite et modélisation d\'une situation d\'évolution.'
+        },
+        {
+          title: 'Exercice 3 - Comparaison (5 points)',
+          content: 'Comparaison de deux modes de placement financier.'
+        },
+        {
+          title: 'Exercice 4 - Algorithme (5 points)',
+          content: 'Programmation d\'un algorithme de calcul de somme de termes.'
+        }
+      ]
     }
   ];
 
@@ -212,7 +317,7 @@ const Examens = () => {
                 {availableExams.map((exam) => (
                   <Card key={exam.id} className="hover:shadow-md transition-all duration-300">
                     <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           <div className="flex items-center space-x-3 mb-2">
                             <h3 className="text-lg font-semibold text-slate-900">{exam.title}</h3>
@@ -224,6 +329,7 @@ const Examens = () => {
                               {exam.status}
                             </Badge>
                           </div>
+                          <p className="text-sm text-slate-600 mb-3">{exam.description}</p>
                           <div className="flex items-center space-x-4 text-sm text-slate-600 mb-2">
                             <div className="flex items-center space-x-1">
                               <Clock className="w-4 h-4" />
@@ -234,7 +340,7 @@ const Examens = () => {
                               <span>{exam.participants} participants</span>
                             </div>
                           </div>
-                          <div className="flex flex-wrap gap-2">
+                          <div className="flex flex-wrap gap-2 mb-3">
                             {exam.topics.map((topic) => (
                               <Badge key={topic} variant="secondary" className="text-xs">
                                 {topic}
@@ -242,15 +348,36 @@ const Examens = () => {
                             ))}
                           </div>
                         </div>
-                        <div className="flex space-x-2">
-                          <Button variant="outline" size="sm">
-                            Aperçu
+                        <div className="flex flex-col space-y-2">
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => setSelectedExam(selectedExam === exam.id ? null : exam.id)}
+                          >
+                            {selectedExam === exam.id ? 'Masquer' : 'Aperçu'}
                           </Button>
-                          <Button size="sm" className="bg-gradient-to-r from-red-500 to-red-600">
-                            Commencer
-                          </Button>
+                          <Link to={`/exam/${exam.id}`}>
+                            <Button size="sm" className="bg-gradient-to-r from-red-500 to-red-600 w-full">
+                              <Play className="w-4 h-4 mr-1" />
+                              Commencer
+                            </Button>
+                          </Link>
                         </div>
                       </div>
+                      
+                      {selectedExam === exam.id && (
+                        <div className="border-t pt-4">
+                          <h4 className="font-medium mb-3">Contenu de l'épreuve :</h4>
+                          <div className="space-y-3">
+                            {exam.exercises.map((exercise, idx) => (
+                              <div key={idx} className="bg-slate-50 p-3 rounded-lg">
+                                <h5 className="font-medium text-slate-900 mb-1">{exercise.title}</h5>
+                                <p className="text-sm text-slate-600">{exercise.content}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 ))}

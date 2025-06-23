@@ -58,7 +58,7 @@ const AnalysisFunctionsExercisePage = () => {
       points: 12,
       statement: "Étudier la continuité de f(x) = {x² si x ≤ 1; 2x si x > 1} en x = 1",
       hint: "Vérifiez que lim(x→1⁻) f(x) = lim(x→1⁺) f(x) = f(1)",
-      solution: "f(1) = 1² = 1\nlim(x→1⁻) f(x) = lim(x→1⁻) x² = 1\nlim(x→1⁺) f(x) = lim(x→1⁺) 2x = 2\nComme 1 ≠ 2, f n'est pas continue en x = 1",
+      solution: "f(1) = 1² =1\nlim(x→1⁻) f(x) = lim(x→1⁻) x² = 1\nlim(x→1⁺) f(x) = lim(x→1⁺) 2x = 2\nComme 1 ≠ 2, f n'est pas continue en x = 1",
       explanation: "Pour la continuité, il faut égalité des limites à droite et à gauche avec la valeur de la fonction",
       category: "Continuité"
     },
@@ -116,6 +116,45 @@ const AnalysisFunctionsExercisePage = () => {
       solution: "Continuité en x = 0 :\nlim(x→0⁻) f(x) = 0²-1 = -1\nf(0) = a(0)+b = b\nDonc b = -1\n\nContinuité en x = 2 :\nf(2) = 2a+b = 2a-1\nlim(x→2⁺) f(x) = 2+3 = 5\nDonc 2a-1 = 5 ⟹ a = 3\n\nSolution : a = 3, b = -1",
       explanation: "Pour la continuité aux points de raccord, on égalise les limites",
       category: "Continuité"
+    },
+    {
+      id: "af-qcm",
+      title: "QCM - Fonctions et limites",
+      difficulty: "Intermédiaire" as const,
+      points: 20,
+      statement: "Questions à choix multiples sur les fonctions et limites",
+      hint: "Réfléchissez bien à chaque question",
+      solution: "1. B) ℝ\\{-2,3}\n2. A) 2\n3. C) Elle n'est pas continue\n4. B) y = 1\n5. A) 1/2",
+      explanation: "QCM de révision générale sur le chapitre",
+      category: "QCM",
+      isQCM: true,
+      questions: [
+        {
+          question: "Quel est le domaine de f(x) = 1/((x+2)(x-3)) ?",
+          options: ["ℝ\\{2,-3}", "ℝ\\{-2,3}", "ℝ\\{2,3}", "ℝ"],
+          correct: 1
+        },
+        {
+          question: "Que vaut lim(x→∞) (2x+1)/(x-1) ?",
+          options: ["2", "1", "∞", "0"],
+          correct: 0
+        },
+        {
+          question: "Soit f(x) = {x² si x<1; 2x si x≥1}. En x=1 :",
+          options: ["Elle est continue", "Elle a une limite", "Elle n'est pas continue", "Elle n'est pas définie"],
+          correct: 2
+        },
+        {
+          question: "L'asymptote horizontale de g(x) = (x+2)/(x-1) est :",
+          options: ["y = 0", "y = 1", "y = 2", "Il n'y en a pas"],
+          correct: 1
+        },
+        {
+          question: "lim(x→∞) (√(x²+x) - x) = ?",
+          options: ["1/2", "1", "0", "∞"],
+          correct: 0
+        }
+      ]
     }
   ];
 
