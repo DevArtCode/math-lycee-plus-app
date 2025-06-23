@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -33,9 +32,7 @@ const Index = () => {
     },
     {
       title: "Analyse",
-      icon: <Tren
-
-dingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-8 h-8" />,
       description: "Fonctions, limites, dérivées et intégrales",
       color: "from-purple-500 to-purple-600",
       chapters: 4,
