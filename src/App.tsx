@@ -79,6 +79,10 @@ import AnalysisFunctionsCoursePage from "./pages/analysis/functions/CoursePage";
 import AnalysisFunctionsExercisePage from "./pages/analysis/functions/ExercisePage";
 import AnalysisDerivativesCoursePage from "./pages/analysis/derivatives/CoursePage";
 import AnalysisDerivativesExercisePage from "./pages/analysis/derivatives/ExercisePage";
+import AnalysisIntegralsCoursePage from "./pages/analysis/integrals/CoursePage";
+import AnalysisIntegralsExercisePage from "./pages/analysis/integrals/ExercisePage";
+import AnalysisSequencesCoursePage from "./pages/analysis/sequences/CoursePage";
+import AnalysisSequencesExercisePage from "./pages/analysis/sequences/ExercisePage";
 
 // Evaluation pages
 import Bilan from "./pages/Bilan";
@@ -161,6 +165,10 @@ const App = () => (
           <Route path="/analysis/functions/exercise" element={<AnalysisFunctionsExercisePage />} />
           <Route path="/analysis/derivatives/course" element={<AnalysisDerivativesCoursePage />} />
           <Route path="/analysis/derivatives/exercise" element={<AnalysisDerivativesExercisePage />} />
+          <Route path="/analysis/integrals/course" element={<AnalysisIntegralsCoursePage />} />
+          <Route path="/analysis/integrals/exercise" element={<AnalysisIntegralsExercisePage />} />
+          <Route path="/analysis/sequences/course" element={<AnalysisSequencesCoursePage />} />
+          <Route path="/analysis/sequences/exercise" element={<AnalysisSequencesExercisePage />} />
 
           {/* Evaluation routes */}
           <Route path="/bilan" element={<Bilan />} />

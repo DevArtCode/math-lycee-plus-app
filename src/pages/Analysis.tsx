@@ -12,7 +12,7 @@ const Analysis = () => {
       id: 1,
       title: 'Fonctions et limites',
       description: 'Étude des fonctions, continuité et calcul de limites',
-      exercises: 10,
+      exercises: 11,
       difficulty: 'Moyen',
       content: [
         'Domaine de définition et ensemble image',
@@ -44,14 +44,14 @@ const Analysis = () => {
       id: 3,
       title: 'Primitives et intégrales',
       description: 'Calcul intégral et applications',
-      exercises: 10,
+      exercises: 11,
       difficulty: 'Difficile',
       content: [
         'Primitives usuelles',
         'Intégrale définie (Riemann)',
         'Théorème fondamental de l\'analyse',
         'Calcul d\'aires sous une courbe',
-        'Intégration par parties (introduction)'
+        'Intégration par parties et substitution'
       ],
       coursePath: '/analysis/integrals/course',
       exercisePath: '/analysis/integrals/exercise'
@@ -60,14 +60,14 @@ const Analysis = () => {
       id: 4,
       title: 'Suites numériques',
       description: 'Convergence et comportement asymptotique',
-      exercises: 10,
+      exercises: 11,
       difficulty: 'Difficile',
       content: [
         'Suites arithmétiques et géométriques',
         'Limite d\'une suite',
         'Théorèmes de convergence',
         'Suites monotones et majorées',
-        'Suites récurrentes'
+        'Suites récurrentes et applications'
       ],
       coursePath: '/analysis/sequences/course',
       exercisePath: '/analysis/sequences/exercise'

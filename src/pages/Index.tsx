@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calculator, TrendingUp, Compass, PieChart, Brain, Binary, BarChart3, FileText, ArrowRight, BookOpen, Target } from 'lucide-react';
@@ -95,24 +94,43 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            Maîtrisez les <span className="text-yellow-300">Mathématiques</span>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
+            Maîtrisez les <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Mathématiques</span>
           </h1>
-          <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-100">
-            Plateforme complète d'apprentissage des mathématiques avec {totalExercises} exercices répartis sur {totalChapters} chapitres
+          <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            Une plateforme interactive pour apprendre et réviser les mathématiques du lycée. 
+            Cours détaillés, exercices progressifs et examens blancs.
           </p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-              <BookOpen className="w-5 h-5 mr-2" />
-              Commencer à apprendre
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-lg px-8 py-4">
+              Commencer maintenant
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              <Target className="w-5 h-5 mr-2" />
-              Tester mon niveau
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+              Découvrir les cours
             </Button>
+          </div>
+          
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600">258</div>
+              <div className="text-slate-600">Exercices</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple-600">6</div>
+              <div className="text-slate-600">Matières</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600">24</div>
+              <div className="text-slate-600">Chapitres</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-red-600">15</div>
+              <div className="text-slate-600">Examens</div>
+            </div>
           </div>
         </div>
       </section>
