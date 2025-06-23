@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, FileText, Clock, Users, Award, Star, Play } from 'lucide-react';
@@ -188,13 +187,13 @@ Dans le plan muni d'un repère orthonormé (O;i,j), on considère :
 EXERCICE 4 (5 points) - Algorithmique et programmation
 On s'intéresse à l'algorithme suivant :
 
-```python
+\`\`\`python
 def mystere(n):
     u = 1
     for i in range(n):
         u = 2*u + 1
     return u
-```
+\`\`\`
 
 1. Que renvoie mystere(3) ?
 2. On note un la valeur renvoyée par mystere(n). Exprimer un+1 en fonction de un.
@@ -242,6 +241,75 @@ Dans l'espace muni d'un repère orthonormé (O;i,j,k), on considère :
 2. Les points A, B, C, D sont-ils coplanaires ?
 3. Calculer le volume du tétraèdre ABCD.
 4. Déterminer l'équation du plan médiateur du segment [AB].`
+    },
+    {
+      id: 'bac-2024-antilles-guyane',
+      title: 'Bac Spé Maths - Antilles-Guyane 2024',
+      type: 'Baccalauréat',
+      duration: '4h',
+      difficulty: 'Standard',
+      topics: ['Fonctions trigonométriques', 'Probabilités', 'Géométrie vectorielle'],
+      status: 'Disponible',
+      participants: 1234,
+      description: 'Sujet Antilles-Guyane 2024 - Fonctions périodiques, lois continues et vecteurs',
+      content: `EXERCICE 1 (5 points) - Fonctions trigonométriques
+Soit f la fonction définie sur ℝ par f(x) = 2sin(x) + cos(2x).
+
+1. Montrer que f est périodique de période 2π.
+2. Calculer f'(x) et résoudre f'(x) = 0 sur [0; 2π].
+3. Dresser le tableau de variations de f sur [0; 2π].
+4. Résoudre l'équation f(x) = 1 sur [0; 2π].`
+    },
+    {
+      id: 'bac-2024-la-reunion',
+      title: 'Bac Spé Maths - La Réunion 2024',
+      type: 'Baccalauréat',
+      duration: '4h',
+      difficulty: 'Standard',
+      topics: ['Logarithmes', 'Suites récurrentes', 'Statistiques'],
+      status: 'Disponible',
+      participants: 987,
+      description: 'Sujet La Réunion 2024 - Croissance logarithmique et modélisation statistique',
+      content: `EXERCICE 1 (5 points) - Fonction logarithme
+Soit f la fonction définie sur ]0;+∞[ par f(x) = ln(x) - x + 2.
+
+1. Étudier les variations de f.
+2. Démontrer que l'équation f(x) = 0 admet exactement deux solutions.
+3. On note α et β ces solutions avec α < β. Donner des valeurs approchées.`
+    },
+    {
+      id: 'bac-2025-nouvelle-caledonie',
+      title: 'Bac Spé Maths - Nouvelle-Calédonie 2025',
+      type: 'Baccalauréat',
+      duration: '4h',
+      difficulty: 'Standard',
+      topics: ['Équations différentielles', 'Variables aléatoires', 'Géométrie complexe'],
+      status: 'Disponible',
+      participants: 756,
+      description: 'Sujet récent 2025 - Modélisation par équations différentielles et géométrie complexe',
+      content: `EXERCICE 1 (5 points) - Équation différentielle
+On considère l'équation différentielle (E) : y' + 2y = 4e^(-x).
+
+1. Résoudre l'équation homogène y' + 2y = 0.
+2. Trouver une solution particulière de (E).
+3. Donner la solution générale de (E).`
+    },
+    {
+      id: 'bac-2024-amerique-nord',
+      title: 'Bac Spé Maths - Amérique du Nord 2024',
+      type: 'Baccalauréat',
+      duration: '4h',
+      difficulty: 'Standard',
+      topics: ['Primitives', 'Loi binomiale', 'Géométrie analytique'],
+      status: 'Disponible',
+      participants: 1678,
+      description: 'Sujet Amérique du Nord 2024 - Calcul intégral et modélisation probabiliste',
+      content: `EXERCICE 1 (5 points) - Primitives et intégrales
+Soit f la fonction définie sur ℝ par f(x) = xe^x.
+
+1. Calculer une primitive F de f.
+2. Calculer ∫₀¹ f(x)dx.
+3. Interpréter géométriquement ce résultat.`
     },
     // Concours Général (section vide pour l'instant)
     {
