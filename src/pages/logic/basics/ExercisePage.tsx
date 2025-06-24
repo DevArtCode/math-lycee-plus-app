@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, CheckCircle, XCircle } from 'lucide-react';
@@ -44,6 +45,76 @@ const LogicBasicsExercisePage = () => {
       options: ["√2 est rationnel", "√2 est irrationnel", "√2 = 2", "√2 < 0"],
       correct: 0,
       explanation: "Dans une démonstration par l'absurde, on suppose le contraire de ce qu'on veut démontrer"
+    },
+    {
+      id: 6,
+      question: "La réciproque de 'Si x > 0 alors x² > 0' est :",
+      options: ["Si x² > 0 alors x > 0", "Si x ≤ 0 alors x² ≤ 0", "Si x² ≤ 0 alors x ≤ 0", "Si x > 0 alors x² ≤ 0"],
+      correct: 0,
+      explanation: "La réciproque de P ⟹ Q est Q ⟹ P"
+    },
+    {
+      id: 7,
+      question: "¬(P ∧ Q) est équivalent à :",
+      options: ["¬P ∨ ¬Q", "¬P ∧ ¬Q", "P ∨ Q", "P ∧ ¬Q"],
+      correct: 0,
+      explanation: "Loi de De Morgan : ¬(P ∧ Q) ≡ ¬P ∨ ¬Q"
+    },
+    {
+      id: 8,
+      question: "Une condition nécessaire et suffisante pour P est :",
+      options: ["Une proposition Q telle que P ⟺ Q", "Une proposition Q telle que P ⟹ Q", "Une proposition Q telle que Q ⟹ P", "Une proposition Q telle que P ∨ Q"],
+      correct: 0,
+      explanation: "P ⟺ Q signifie que Q est condition nécessaire et suffisante pour P"
+    },
+    {
+      id: 9,
+      question: "Soit P : 'x est divisible par 4' et Q : 'x est pair'. Quelle relation existe entre P et Q ?",
+      options: ["P ⟹ Q", "Q ⟹ P", "P ⟺ Q", "P et Q sont indépendants"],
+      correct: 0,
+      explanation: "Si x est divisible par 4, alors x est forcément pair, donc P ⟹ Q"
+    },
+    {
+      id: 10,
+      question: "La négation de 'P ou Q' est :",
+      options: ["(non P) et (non Q)", "(non P) ou (non Q)", "P et (non Q)", "(non P) ou Q"],
+      correct: 0,
+      explanation: "Loi de De Morgan : ¬(P ∨ Q) ≡ ¬P ∧ ¬Q"
+    },
+    {
+      id: 11,
+      question: "Pour prouver P ⟹ Q par contraposition, on démontre :",
+      options: ["¬Q ⟹ ¬P", "¬P ⟹ ¬Q", "Q ⟹ P", "P ∧ Q"],
+      correct: 0,
+      explanation: "La contraposition utilise l'équivalence P ⟹ Q ≡ ¬Q ⟹ ¬P"
+    },
+    {
+      id: 12,
+      question: "Une tautologie est :",
+      options: ["Une proposition toujours vraie", "Une proposition toujours fausse", "Une proposition parfois vraie", "Une proposition indécidable"],
+      correct: 0,
+      explanation: "Une tautologie est une proposition logiquement vraie dans tous les cas"
+    },
+    {
+      id: 13,
+      question: "P ⟹ (Q ∨ R) est équivalent à :",
+      options: ["(P ⟹ Q) ∨ (P ⟹ R)", "(P ⟹ Q) ∧ (P ⟹ R)", "P ⟹ (Q ∧ R)", "(P ∨ Q) ⟹ R"],
+      correct: 0,
+      explanation: "Distribution de l'implication sur la disjonction"
+    },
+    {
+      id: 14,
+      question: "La négation d'une implication P ⟹ Q est :",
+      options: ["P ∧ ¬Q", "¬P ∧ Q", "¬P ∨ ¬Q", "¬P ⟹ ¬Q"],
+      correct: 0,
+      explanation: "¬(P ⟹ Q) ≡ ¬(¬P ∨ Q) ≡ P ∧ ¬Q"
+    },
+    {
+      id: 15,
+      question: "En logique propositionnelle, combien de valeurs de vérité possibles y a-t-il ?",
+      options: ["2", "3", "4", "Infini"],
+      correct: 0,
+      explanation: "En logique propositionnelle, une proposition ne peut être que vraie ou fausse"
     }
   ];
 

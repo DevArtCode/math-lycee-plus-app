@@ -72,11 +72,55 @@ const AlgorithmFunctionsExercisePage = () => {
       solution: "def puissance(a, n):\n    \"\"\"Calcule a^n récursivement\"\"\"\n    if n == 0:\n        return 1\n    elif n > 0:\n        return a * puissance(a, n-1)\n    else:\n        return 1 / puissance(a, -n)\n\n# Version optimisée (exponentiation rapide)\ndef puissance_rapide(a, n):\n    if n == 0:\n        return 1\n    elif n % 2 == 0:\n        temp = puissance_rapide(a, n//2)\n        return temp * temp\n    else:\n        return a * puissance_rapide(a, n-1)",
       explanation: "Calcul de puissance avec algorithme naïf et optimisé",
       category: "Algorithmes mathématiques"
+    },
+    {
+      id: "af-7",
+      title: "Fonction PGCD",
+      difficulty: "Avancé" as const,
+      points: 20,
+      statement: "Implémenter l'algorithme d'Euclide pour calculer le PGCD de deux nombres.",
+      hint: "PGCD(a,b) = PGCD(b, a mod b) si b ≠ 0",
+      solution: "def pgcd(a, b):\n    \"\"\"Calcule le PGCD par l'algorithme d'Euclide\"\"\"\n    while b != 0:\n        a, b = b, a % b\n    return a\n\n# Version récursive\ndef pgcd_recursif(a, b):\n    if b == 0:\n        return a\n    else:\n        return pgcd_recursif(b, a % b)",
+      explanation: "Algorithme d'Euclide pour le calcul du PGCD",
+      category: "Algorithmes mathématiques"
+    },
+    {
+      id: "af-8",
+      title: "Fonction de tri",
+      difficulty: "Avancé" as const,
+      points: 22,
+      statement: "Implémenter une fonction de tri rapide (quicksort).",
+      hint: "Divisez autour d'un pivot et triez récursivement",
+      solution: "def tri_rapide(liste):\n    \"\"\"Tri rapide récursif\"\"\"\n    if len(liste) <= 1:\n        return liste\n    \n    pivot = liste[len(liste) // 2]\n    gauche = [x for x in liste if x < pivot]\n    milieu = [x for x in liste if x == pivot]\n    droite = [x for x in liste if x > pivot]\n    \n    return tri_rapide(gauche) + milieu + tri_rapide(droite)",
+      explanation: "Algorithme de tri rapide avec approche divide-and-conquer",
+      category: "Tri"
+    },
+    {
+      id: "af-9",
+      title: "Fonction récursive sur listes",
+      difficulty: "Avancé" as const,
+      points: 18,
+      statement: "Écrire une fonction récursive qui calcule la somme des éléments d'une liste.",
+      hint: "Cas de base : liste vide, cas récursif : premier élément + somme du reste",
+      solution: "def somme_liste(liste):\n    \"\"\"Calcule la somme des éléments récursivement\"\"\"\n    if not liste:  # liste vide\n        return 0\n    else:\n        return liste[0] + somme_liste(liste[1:])\n\n# Version avec accumulateur\ndef somme_acc(liste, acc=0):\n    if not liste:\n        return acc\n    else:\n        return somme_acc(liste[1:], acc + liste[0])",
+      explanation: "Récursion sur structures de données avec optimisation par accumulateur",
+      category: "Structures de données"
+    },
+    {
+      id: "af-10",
+      title: "Générateur de nombres premiers",
+      difficulty: "Avancé" as const,
+      points: 25,
+      statement: "Créer une fonction qui génère tous les nombres premiers jusqu'à n (crible d'Ératosthène).",
+      hint: "Marquez les multiples de chaque nombre premier",
+      solution: "def crible_eratosthene(n):\n    \"\"\"Génère tous les premiers jusqu'à n\"\"\"\n    if n < 2:\n        return []\n    \n    # Initialiser le crible\n    premier = [True] * (n + 1)\n    premier[0] = premier[1] = False\n    \n    p = 2\n    while p * p <= n:\n        if premier[p]:\n            # Marquer les multiples de p\n            for i in range(p * p, n + 1, p):\n                premier[i] = False\n        p += 1\n    \n    return [i for i in range(2, n + 1) if premier[i]]",
+      explanation: "Algorithme du crible d'Ératosthène pour générer les nombres premiers",
+      category: "Algorithmes mathématiques"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50">
       <header className="bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -88,7 +132,7 @@ const AlgorithmFunctionsExercisePage = () => {
                 </Button>
               </Link>
               <div className="flex items-center space-x-2">
-                <Target className="w-6 h-6 text-blue-600" />
+                <Target className="w-6 h-6 text-orange-600" />
                 <h1 className="text-xl font-bold text-slate-900">Exercices - Fonctions et Procédures</h1>
               </div>
             </div>
@@ -102,7 +146,7 @@ const AlgorithmFunctionsExercisePage = () => {
       </header>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <ExerciseList exercises={exercises} color="from-blue-600 to-blue-800" />
+        <ExerciseList exercises={exercises} color="from-orange-600 to-orange-800" />
       </div>
     </div>
   );
