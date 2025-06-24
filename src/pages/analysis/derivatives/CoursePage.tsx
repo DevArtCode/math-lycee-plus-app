@@ -59,23 +59,37 @@ const AnalysisDerivativesCoursePage = () => {
       content: [
         "Fonction constante : (k)' = 0",
         "Fonction puissance : (xⁿ)' = nxⁿ⁻¹",
-        "Fonction exponentielle : (eˣ)' = eˣ",
-        "Fonction logarithme : (ln(x))' = 1/x",
-        "Fonctions trigonométriques : (sin(x))' = cos(x), (cos(x))' = -sin(x)"
+        "Fonction exponentielle : (eˣ)' = eˣ, (eᵘ)' = u'eᵘ",
+        "Fonction logarithme : (ln(x))' = 1/x, (ln(u))' = u'/u",
+        "Fonctions trigonométriques : (sin(x))' = cos(x), (cos(x))' = -sin(x), (tan(x))' = 1 + tan²(x) = 1/cos²(x)",
+        "Fonctions composées : (sin(u))' = u'cos(u), (cos(u))' = -u'sin(u)",
+        "Fonction racine : (√x)' = 1/(2√x), (√u)' = u'/(2√u)",
+        "Fonction inverse : (1/x)' = -1/x², (1/u)' = -u'/u²"
       ],
       examples: [
         {
           title: "Dérivée composée avec ln",
           description: "Calculer la dérivée de f(x) = ln(x²+1)",
-          solution: "f(x) = ln(u) avec u = x²+1\nf'(x) = (1/u) × u' = (1/(x²+1)) × 2x = 2x/(x²+1)",
+          solution: "f(x) = ln(u) avec u = x²+1\nf'(x) = u'/u = (2x)/(x²+1) = 2x/(x²+1)",
           domain: "Fonctions composées"
+        },
+        {
+          title: "Dérivée d'exponentielle composée",
+          description: "Calculer la dérivée de g(x) = e^(2x+1)",
+          solution: "g(x) = e^u avec u = 2x+1\ng'(x) = u' × e^u = 2 × e^(2x+1) = 2e^(2x+1)",
+          domain: "Exponentielle composée"
         }
       ],
       keyFormulas: [
+        "(k)' = 0",
         "(xⁿ)' = nxⁿ⁻¹",
-        "(eˣ)' = eˣ",
-        "(ln(x))' = 1/x",
-        "(sin(x))' = cos(x), (cos(x))' = -sin(x)"
+        "(eˣ)' = eˣ, (eᵘ)' = u'eᵘ",
+        "(ln(x))' = 1/x, (ln(u))' = u'/u",
+        "(sin(x))' = cos(x), (sin(u))' = u'cos(u)",
+        "(cos(x))' = -sin(x), (cos(u))' = -u'sin(u)",
+        "(tan(x))' = 1/cos²(x), (tan(u))' = u'/cos²(u)",
+        "(√x)' = 1/(2√x), (√u)' = u'/(2√u)",
+        "(1/x)' = -1/x², (1/u)' = -u'/u²"
       ]
     },
     {
