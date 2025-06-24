@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from "@/components/ui/toaster";
@@ -35,24 +36,33 @@ import GeometryComplexExercisePage from "./pages/geometry/complex/ExercisePage";
 // Probability chapter pages
 import ProbabilityBasicsCoursePage from "./pages/probability/basics/CoursePage";
 import ProbabilityBasicsExercisePage from "./pages/probability/basics/ExercisePage";
+import ProbabilityBasicsQcmPage from "./pages/probability/basics/QcmPage";
 import ProbabilityConditionalCoursePage from "./pages/probability/conditional/CoursePage";
 import ProbabilityConditionalExercisePage from "./pages/probability/conditional/ExercisePage";
+import ProbabilityConditionalQcmPage from "./pages/probability/conditional/QcmPage";
 import ProbabilityVariablesCoursePage from "./pages/probability/variables/CoursePage";
 import ProbabilityVariablesExercisePage from "./pages/probability/variables/ExercisePage";
+import ProbabilityVariablesQcmPage from "./pages/probability/variables/QcmPage";
 import ProbabilityContinuousCoursePage from "./pages/probability/continuous/CoursePage";
 import ProbabilityContinuousExercisePage from "./pages/probability/continuous/ExercisePage";
+import ProbabilityContinuousQcmPage from "./pages/probability/continuous/QcmPage";
 import ProbabilityStatisticsCoursePage from "./pages/probability/statistics/CoursePage";
 import ProbabilityStatisticsExercisePage from "./pages/probability/statistics/ExercisePage";
+import ProbabilityStatisticsQcmPage from "./pages/probability/statistics/QcmPage";
 
 // Logic chapter pages
 import LogicBasicsCoursePage from "./pages/logic/basics/CoursePage";
 import LogicBasicsExercisePage from "./pages/logic/basics/ExercisePage";
+import LogicBasicsQcmPage from "./pages/logic/basics/QcmPage";
 import LogicQuantifiersCoursePage from "./pages/logic/quantifiers/CoursePage";
 import LogicQuantifiersExercisePage from "./pages/logic/quantifiers/ExercisePage";
+import LogicQuantifiersQcmPage from "./pages/logic/quantifiers/QcmPage";
 import LogicSetsCoursePage from "./pages/logic/sets/CoursePage";
 import LogicSetsExercisePage from "./pages/logic/sets/ExercisePage";
+import LogicSetsQcmPage from "./pages/logic/sets/QcmPage";
 import LogicInductionCoursePage from "./pages/logic/induction/CoursePage";
 import LogicInductionExercisePage from "./pages/logic/induction/ExercisePage";
+import LogicInductionQcmPage from "./pages/logic/induction/QcmPage";
 
 // Algorithm chapter pages
 import AlgorithmBasicsCoursePage from "./pages/algorithm/basics/CoursePage";
@@ -130,24 +140,33 @@ const App = () => (
           {/* Probability chapter routes */}
           <Route path="/probability/basics/course" element={<ProbabilityBasicsCoursePage />} />
           <Route path="/probability/basics/exercise" element={<ProbabilityBasicsExercisePage />} />
+          <Route path="/probability/basics/qcm" element={<ProbabilityBasicsQcmPage />} />
           <Route path="/probability/conditional/course" element={<ProbabilityConditionalCoursePage />} />
           <Route path="/probability/conditional/exercise" element={<ProbabilityConditionalExercisePage />} />
+          <Route path="/probability/conditional/qcm" element={<ProbabilityConditionalQcmPage />} />
           <Route path="/probability/variables/course" element={<ProbabilityVariablesCoursePage />} />
           <Route path="/probability/variables/exercise" element={<ProbabilityVariablesExercisePage />} />
+          <Route path="/probability/variables/qcm" element={<ProbabilityVariablesQcmPage />} />
           <Route path="/probability/continuous/course" element={<ProbabilityContinuousCoursePage />} />
           <Route path="/probability/continuous/exercise" element={<ProbabilityContinuousExercisePage />} />
+          <Route path="/probability/continuous/qcm" element={<ProbabilityContinuousQcmPage />} />
           <Route path="/probability/statistics/course" element={<ProbabilityStatisticsCoursePage />} />
           <Route path="/probability/statistics/exercise" element={<ProbabilityStatisticsExercisePage />} />
+          <Route path="/probability/statistics/qcm" element={<ProbabilityStatisticsQcmPage />} />
 
           {/* Logic chapter routes */}
           <Route path="/logic/basics/course" element={<LogicBasicsCoursePage />} />
           <Route path="/logic/basics/exercise" element={<LogicBasicsExercisePage />} />
+          <Route path="/logic/basics/qcm" element={<LogicBasicsQcmPage />} />
           <Route path="/logic/quantifiers/course" element={<LogicQuantifiersCoursePage />} />
           <Route path="/logic/quantifiers/exercise" element={<LogicQuantifiersExercisePage />} />
+          <Route path="/logic/quantifiers/qcm" element={<LogicQuantifiersQcmPage />} />
           <Route path="/logic/sets/course" element={<LogicSetsCoursePage />} />
           <Route path="/logic/sets/exercise" element={<LogicSetsExercisePage />} />
+          <Route path="/logic/sets/qcm" element={<LogicSetsQcmPage />} />
           <Route path="/logic/induction/course" element={<LogicInductionCoursePage />} />
           <Route path="/logic/induction/exercise" element={<LogicInductionExercisePage />} />
+          <Route path="/logic/induction/qcm" element={<LogicInductionQcmPage />} />
 
           {/* Algorithm chapter routes */}
           <Route path="/algorithm/basics/course" element={<AlgorithmBasicsCoursePage />} />
