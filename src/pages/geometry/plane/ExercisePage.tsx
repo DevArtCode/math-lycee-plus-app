@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Target } from 'lucide-react';
@@ -109,7 +108,7 @@ const GeometryPlaneExercisePage = () => {
     {
       id: "gp-10",
       title: "Géométrie métrique avancée",
-      difficulty: "Expert" as const,
+      difficulty: "Avancé" as const,
       points: 22,
       statement: "Dans un triangle ABC, on donne AB = 7, AC = 5, BC = 8.\n1. Calculer l'aire du triangle par la formule de Héron\n2. Calculer la longueur de la hauteur issue de A\n3. Déterminer les coordonnées du centre du cercle circonscrit",
       hint: "Utilisez la formule de Héron puis les propriétés du cercle circonscrit",
